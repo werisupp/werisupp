@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var m2 = src.match(/drive\.google\.com\/file\/d\/([^/]+)/);
     var id = (m1 && m1[1]) || (m2 && m2[1]);
     if (id) {
-      img.src = 'https://drive.google.com/uc?export=view&id=' + id;
+      img.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1000';
     }
   });
 });
