@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STEP① 転職するためのマインドセットをする｜うぇりサポ</title>
-  <!-- ▼ ここに article-common.html の <style> タグの中身をそのままペーストする -->
-  <style>
-    /* ===== ヘッダー（固定） ===== */
-    .pub-header { ... } /* article-common.html から全スタイルをコピペ */
-    /* 省略 - 実際は全CSSを貼る */
-  </style>
+  <title>脱出STEP① - うぇりサポ</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="pub-page-body">
 
-  <!-- ▼ 固定ヘッダー -->
+  <!-- ▼ 固定ヘッダー（index.htmlと同じものをコピー） -->
   <div class="pub-header">
     <div style="display:flex; align-items:center; gap:15px;">
       <button class="pub-menu-btn" onclick="pubToggleSidebar()">
@@ -24,31 +19,26 @@
       <span class="pub-header-title">うぇりサポ</span>
     </div>
     <div class="pub-header-right">
-      <!-- GASの<?= ScriptApp.getService().getUrl() ?> を / に置き換え -->
-      <a href="/">トップ</a>
+      <a href="./index.html">ログイン</a>
     </div>
   </div>
 
   <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
 
-  <!-- ▼ サイドバー（全ページ共通） -->
   <div class="pub-sidebar" id="pubSidebar">
     <ul class="pub-sidebar-menu">
-      <li><a href="/index.html">📋 記事一覧</a></li>
-      <li><a href="/article1.html" class="active">脱出STEP①</a></li><!-- ← このページはactiveに -->
-      <li><a href="/article2.html">脱出STEP②</a></li>
-      <!-- …以下16まで続く… -->
-      <li><a href="/article16.html">脱出STEP⑯</a></li>
+      <li><a href="./index.html">📋 記事一覧</a></li>
+      <li><a href="./article1.html" class="active">脱出STEP①</a></li>
+      <!-- ... 他のリンクも同様に -->
     </ul>
   </div>
 
-  <!-- ▼ 記事本文（GASのarticle.htmlの中身をそのままここに貼る） -->
-  <!-- article1.html の場合は article1.html の本文をここに貼り付ける -->
+  <!-- ▼ この記事のコンテンツ -->
   <header class="article-header">
     <div class="container">
       <div class="article-header-content">
-        <h1>転職するためのマインドセットをする</h1>
-        <div class="article-meta">STEP① ～10分</div>
+        <h1>STEP①：転職するためのマインドセットをする</h1>
+        <div class="article-meta">詳しい解説はこちら</div>
       </div>
     </div>
   </header>
@@ -56,16 +46,21 @@
   <main class="article-content">
     <div class="container">
       <div class="content-wrapper">
-        <!-- ここに各記事の本文HTMLを貼り付ける -->
+        <!-- ここに各記事の本文を貼り付け -->
       </div>
     </div>
   </main>
 
-  <!-- ▼ article-common.html の <script> タグの中身をそのままコピペ -->
   <script>
-    function pubToggleSidebar() { ... }
-    function pubCloseSidebar() { ... }
-    // convertGoogleDriveImages, generateTableOfContents なども全てコピペ
+    function pubToggleSidebar() {
+      document.getElementById('pubSidebar').classList.toggle('open');
+      document.getElementById('pubSidebarOverlay').classList.toggle('show');
+    }
+    function pubCloseSidebar() {
+      document.getElementById('pubSidebar').classList.remove('open');
+      document.getElementById('pubSidebarOverlay').classList.remove('show');
+    }
   </script>
+
 </body>
 </html>
