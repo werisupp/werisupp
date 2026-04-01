@@ -301,6 +301,60 @@
     margin-top: 0.5rem;
   }
 
+    .phase-card {
+    background: linear-gradient(135deg, rgba(0, 91, 172, 0.06) 0%, rgba(32, 201, 151, 0.06) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1.5rem 0 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+    }
+    .phase-card::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(32, 201, 151, 0.12), transparent 70%);
+    pointer-events: none;
+    }
+    .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    }
+    .phase-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 91, 172, 0.3);
+    }
+    .phase-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    }
+    .phase-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    }
+    .phase-card p:last-child {
+    margin-bottom: 0;
+    }
+
   /* Animations */
   @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
