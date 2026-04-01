@@ -5,24 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>脱出STEP① - うぇりサポ</title>
   <link rel="stylesheet" href="./style.css">
-  <script>
-    // Google DriveのURLを直接表示用URLに自動変換する
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('img').forEach(function(img) {
-        var src = img.getAttribute('src') || '';
-        // open?id= 形式
-        var m1 = src.match(/drive\.google\.com\/open\?id=([^&]+)/);
-        // file/d/{id}/ 形式
-        var m2 = src.match(/drive\.google\.com\/file\/d\/([^/]+)/);
-        // uc?id= 形式（念のため）
-        var m3 = src.match(/drive\.google\.com\/uc\?(?:.*&)?id=([^&]+)/);
-        var id = (m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]);
-        if (id) {
-          img.src = 'https://drive.google.com/uc?export=view&id=' + id;
-        }
-      });
-    });
-  </script>
+  <script src="./common.js" defer></script>
 </head>
 <body class="pub-page-body">
 
