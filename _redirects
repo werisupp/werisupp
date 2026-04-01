@@ -1,2 +1,16 @@
-# 各HTMLファイルへのアクセスはそのまま表示する
-# このファイルは空のままでOK
+/article1   /article1.html   301
+/article2   /article2.html   301
+/article3   /article3.html   301
+/article4   /article4.html   301
+/article5   /article5.html   301
+/article6   /article6.html   301
+/article7   /article7.html   301
+/article8   /article8.html   301
+/article9   /article9.html   301
+/article10  /article10.html  301
+/article11  /article11.html  301
+/article12  /article12.html  301
+/article13  /article13.html  301
+/article14  /article14.html  301
+/article15  /article15.html  301
+/article16  /article16.html  301
