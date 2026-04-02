@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>脱出STEP⑮ - うぇりサポ</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./common.js" defer></script>
+</head>
+<body class="pub-page-body">
+
+  <div class="pub-header">
+    <div style="display:flex; align-items:center; gap:15px;">
+      <button class="pub-menu-btn" onclick="pubToggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+      <span class="pub-header-title">うぇりサポ</span>
+    </div>
+    <div class="pub-header-right"><a href="./index.html">ログイン</a></div>
+  </div>
+
+  <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
+
+  <div class="pub-sidebar" id="pubSidebar">
+    <ul class="pub-sidebar-menu">
+      <li><a href="./index.html">📋 記事一覧</a></li>
+      <li><a href="./article1.html">脱出STEP①</a></li>
+      <li><a href="./article2.html">脱出STEP②</a></li>
+      <li><a href="./article3.html">脱出STEP③</a></li>
+      <li><a href="./article4.html">脱出STEP④</a></li>
+      <li><a href="./article5.html">脱出STEP⑤</a></li>
+      <li><a href="./article6.html">脱出STEP⑥</a></li>
+      <li><a href="./article7.html">脱出STEP⑦</a></li>
+      <li><a href="./article8.html">脱出STEP⑧</a></li>
+      <li><a href="./article9.html">脱出STEP⑨</a></li>
+      <li><a href="./article10.html">脱出STEP⑩</a></li>
+      <li><a href="./article11.html">脱出STEP⑪</a></li>
+      <li><a href="./article12.html">脱出STEP⑫</a></li>
+      <li><a href="./article13.html">脱出STEP⑬</a></li>
+      <li><a href="./article14.html">脱出STEP⑭</a></li>
+      <li><a href="./article15.html" class="active">脱出STEP⑮</a></li>
+      <li><a href="./article16.html">脱出STEP⑯</a></li>
+    </ul>
+  </div>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="article-header-content">
+        <h1>脱出STEP⑮<br>退職手続きを進める</h1>
+        <div class="article-meta">スムーズに退職するための準備と引き継ぎのコツ</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <a href="./index.html">← 脱出ガイド一覧に戻る</a>
+
+        <section class="section">
+          <div class="reader-feelings-box">
+            <span class="box-title">こんな風に感じていませんか？</span>
+            <ul><li>（ここに読者の気持ちを追加）</li></ul>
+          </div>
+          <p>（ここにイントロダクションを追加してください）</p>
+          <div class="highlight-box">
+            <span class="box-title">この記事でわかること</span>
+            <ul><li>（ここに記事の内容を追加）</li></ul>
+          </div>
+        </section>
+
+        <section class="table-of-contents">
+          <h3>この記事の内容</h3>
+          <div id="toc-container"></div>
+        </section>
+
+        <section class="section">
+          <h2>① （見出しをここに追加）</h2>
+          <p>（ここに本文を追加してください）</p>
+        </section>
+        <section class="section">
+          <h2>② （見出しをここに追加）</h2>
+          <p>（ここに本文を追加してください）</p>
+        </section>
+        <section class="section">
+          <h2>③ （見出しをここに追加）</h2>
+          <p>（ここに本文を追加してください）</p>
+        </section>
+        <section class="section">
+          <h2>まとめ</h2>
+          <p>（ここにまとめを追加してください）</p>
+        </section>
+
+        <section class="final-cta">
+          <div class="cta-content">
+            <h2 class="cta-title">次のステップへ進みましょう</h2>
+            <p class="cta-description">このSTEPを完了したら、次のステップへ進みましょう。</p>
+            <a href="./article16.html" class="article-link"><span>🌟 新しい職場でのスタート</span></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function pubToggleSidebar() { document.getElementById('pubSidebar').classList.toggle('open'); document.getElementById('pubSidebarOverlay').classList.toggle('show'); }
+    function pubCloseSidebar() { document.getElementById('pubSidebar').classList.remove('open'); document.getElementById('pubSidebarOverlay').classList.remove('show'); }
+  </script>
+</body>
+</html>
