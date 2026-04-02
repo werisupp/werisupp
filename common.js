@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var id = (m1 && m1[1]) || (m2 && m2[1]);
     if (id) {
       img.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1000';
+      img.style.maxWidth = '100%';
+      img.style.height = 'auto';
+      img.style.display = 'block';
     }
   });
 });
