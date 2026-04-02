@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>脱出STEP⑥ - うぇりサポ</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./common.js" defer></script>
+</head>
+<body class="pub-page-body">
+
+  <!-- ▼ 固定ヘッダー -->
+  <div class="pub-header">
+    <div style="display:flex; align-items:center; gap:15px;">
+      <button class="pub-menu-btn" onclick="pubToggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <span class="pub-header-title">うぇりサポ</span>
+    </div>
+    <div class="pub-header-right">
+      <a href="./index.html">ログイン</a>
+    </div>
+  </div>
+
+  <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
+
+  <div class="pub-sidebar" id="pubSidebar">
+    <ul class="pub-sidebar-menu">
+      <li><a href="./index.html">📋 記事一覧</a></li>
+      <li><a href="./article1.html">脱出STEP①</a></li>
+      <li><a href="./article2.html">脱出STEP②</a></li>
+      <li><a href="./article3.html">脱出STEP③</a></li>
+      <li><a href="./article4.html">脱出STEP④</a></li>
+      <li><a href="./article5.html">脱出STEP⑤</a></li>
+      <li><a href="./article6.html" class="active">脱出STEP⑥</a></li>
+      <li><a href="./article7.html">脱出STEP⑦</a></li>
+      <li><a href="./article8.html">脱出STEP⑧</a></li>
+      <li><a href="./article9.html">脱出STEP⑨</a></li>
+      <li><a href="./article10.html">脱出STEP⑩</a></li>
+      <li><a href="./article11.html">脱出STEP⑪</a></li>
+      <li><a href="./article12.html">脱出STEP⑫</a></li>
+      <li><a href="./article13.html">脱出STEP⑬</a></li>
+      <li><a href="./article14.html">脱出STEP⑭</a></li>
+      <li><a href="./article15.html">脱出STEP⑮</a></li>
+      <li><a href="./article16.html">脱出STEP⑯</a></li>
+    </ul>
+  </div>
+
+  <!-- ▼ この記事のコンテンツ -->
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-header-content">
+        <h1>脱出STEP⑥<br>転職の軸を明確にする</h1>
+        <div class="article-meta">「なぜ転職するのか」を言語化することが、後悔しない転職への近道</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <main class="article-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <a href="./index.html">← 脱出ガイド一覧に戻る</a>
+
+        <!-- Introduction -->
+        <section class="section">
+          <div class="reader-feelings-box">
+            <span class="box-title">こんな風に感じていませんか？</span>
+            <ul>
+              <li>とにかく今の会社を辞めたいけど、次にどんな会社に行けばいいかわからない…</li>
+              <li>転職の軸って何のこと？どう考えればいいの？</li>
+              <li>給料が上がれば何でもいいかな、と思っているけど本当にそれだけでいいの？</li>
+              <li>転職先に求めるものが多すぎて、どこに応募すればいいか絞れない…</li>
+              <li>前回の転職で失敗したのは、軸がなかったからかもしれない…</li>
+            </ul>
+          </div>
+
+          <p>「とにかく今の会社を辞めたい」という気持ちだけで転職すると、入社後に「またここも合わない…」と感じてしまうことがあります。それを防ぐのが「転職の軸」を持つことです。</p>
+
+          <p>この記事では、<strong>「転職の軸」とは何か・なぜ必要か・どうやって決めるか</strong>を、具体的なステップとともに丁寧に解説します。軸を明確にするだけで、求人の絞り方も、面接での答え方も、ぐっとシンプルになります。</p>
+
+          <div class="highlight-box">
+            <span class="box-title">この記事でわかること</span>
+            <ul>
+              <li>「転職の軸」とは何か・なぜ重要なのか</li>
+              <li>転職の軸を決める3つのステップ</li>
+              <li>軸を「譲れない条件」と「あればいい条件」に分ける方法</li>
+              <li>軸を面接でどう伝えるか</li>
+              <li>転職の軸チェックシートの使い方</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Table of Contents -->
+        <section class="table-of-contents">
+          <h3>この記事の内容</h3>
+          <div id="toc-container"></div>
+        </section>
+
+        <!-- ① 転職の軸とは -->
+        <section class="section">
+          <h2>① 「転職の軸」とは何か</h2>
+
+          <p>「転職の軸」とは、<strong>転職先を選ぶときの判断基準・優先順位</strong>のことです。「どんな会社に行きたいか」ではなく、「自分が仕事において何を一番大切にしたいか」を言語化したものです。</p>
+
+          <h3>転職の軸がないとどうなるか</h3>
+
+          <p>転職の軸がないまま転職活動を進めると、次のような問題が起きやすくなります。</p>
+
+          <div class="warning-box">
+            <span class="box-title">軸がないまま転職すると起きやすいこと</span>
+            <ul>
+              <li>条件だけで応募してしまい、入社後に「なんか違う…」となる</li>
+              <li>面接で「なぜ転職しようと思ったのですか？」という質問にうまく答えられない</li>
+              <li>複数の求人を見ていてもどこがいいか判断できず、選考が進まない</li>
+              <li>「とにかく辞めたい」という気持ちだけで入社し、また同じ失敗を繰り返す</li>
+            </ul>
+          </div>
+
+          <p>逆に転職の軸が明確だと、「この求人は軸に合う/合わない」という判断がすぐにできるようになり、無駄な応募も面接での迷いも減ります。</p>
+        </section>
+
+        <!-- ② なぜ転職の軸が重要か -->
+        <section class="section">
+          <h2>② なぜ転職の軸が重要なのか</h2>
+
+          <p>転職活動では、何十社もの求人を見て判断し、面接で自己PRをして、複数の内定から1社を選ぶ、というプロセスを経ます。この一連の判断を支えるのが「転職の軸」です。</p>
+
+          <h3>転職の軸が果たす3つの役割</h3>
+
+          <div class="highlight-box">
+            <span class="box-title">転職の軸が果たす3つの役割</span>
+            <ul>
+              <li><strong>求人選びの基準になる：</strong>「軸に合う求人だけに絞る」ことで、応募数が絞られ質が上がる</li>
+              <li><strong>面接での説得力が増す：</strong>「なぜ転職するのか」「なぜこの会社なのか」に一本筋が通る</li>
+              <li><strong>内定後の意思決定に使える：</strong>複数の内定が出たとき、軸に沿って冷静に比較できる</li>
+            </ul>
+          </div>
+
+          <p>転職の軸は「完璧な条件を持った会社を探す道具」ではありません。「自分が大切にしたいことを守る道具」です。この違いを意識しておくと、軸づくりの作業がずっと楽になります。</p>
+        </section>
+
+        <!-- ③ 転職の軸を決める3ステップ -->
+        <section class="section">
+          <h2>③ 転職の軸を決める3つのステップ</h2>
+
+          <p>転職の軸は、頭の中だけで考えていても漠然としたままです。紙やドキュメントに書き出しながら、次の3ステップで進めていきましょう。</p>
+
+          <h3>STEP1：「今の会社で不満なこと」を全部書き出す</h3>
+
+          <p>最初のステップは、現職での不満・ストレスをとにかく全部書き出すことです。「こんなことを書いてもいいのか」と思うようなことも含めて、思いついたものをすべて書き出します。</p>
+
+          <div class="steps-box">
+            <span class="box-title">書き出しの例</span>
+            <ul>
+              <li>上司に毎日怒鳴られる</li>
+              <li>残業が多くて体力的にキツい</li>
+              <li>給料が低い（同年代の平均より明らかに低い）</li>
+              <li>仕事内容がルーティンすぎて成長感がない</li>
+              <li>通勤が1時間以上かかって消耗する</li>
+              <li>チームの雰囲気が悪く、協力し合える環境がない</li>
+            </ul>
+          </div>
+
+          <p>この作業は「愚痴を書く」のではなく、「自分が仕事に何を求めているかを逆算する」ための作業です。「残業が多くてキツい」という不満は、「適切な労働時間の環境で働きたい」という軸につながります。</p>
+
+          <h3>STEP2：「不満の反対側」にある理想を言語化する</h3>
+
+          <p>書き出した不満リストを見ながら、「その反対にある状態」を書いていきます。</p>
+
+          <table class="breakdown-table">
+            <thead>
+              <tr>
+                <th>現職での不満</th>
+                <th>転職先への理想（軸の候補）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>上司に怒鳴られる</td>
+                <td>お互いを尊重し合える職場環境</td>
+              </tr>
+              <tr>
+                <td>残業が多い</td>
+                <td>月の残業時間が20時間以内</td>
+              </tr>
+              <tr>
+                <td>給料が低い</td>
+                <td>年収○○万円以上（具体的な金額を設定）</td>
+              </tr>
+              <tr>
+                <td>ルーティン作業ばかり</td>
+                <td>スキルアップできる仕事・成長できる環境</td>
+              </tr>
+              <tr>
+                <td>通勤時間が長い</td>
+                <td>自宅から片道1時間以内 or リモートワーク可</td>
+              </tr>
+              <tr>
+                <td>チームの雰囲気が悪い</td>
+                <td>協力し合える・相談しやすいチーム文化</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>この「理想の状態」が、転職の軸の候補になります。次のステップで優先順位をつけていきます。</p>
+
+          <h3>STEP3：軸を「譲れない」と「あればいい」に分ける</h3>
+
+          <p>候補として挙げた軸を、すべて同列に扱っていると「全条件を満たす完璧な会社」を探し続けることになり、いつまでも絞れません。ここで、<strong>「譲れない条件（必須）」と「あればいい条件（希望）」</strong>に分類します。</p>
+
+          <div class="highlight-box">
+            <span class="box-title">分類の目安</span>
+            <ul>
+              <li><strong>譲れない条件（必須）：</strong>ここを外すと転職の意味がなくなるもの。2〜3個に絞る</li>
+              <li><strong>あればいい条件（希望）：</strong>あるに越したことはないが、なくてもOKなもの。優先度を1〜3で記録しておく</li>
+            </ul>
+          </div>
+
+          <div class="tips-box">
+            <span class="box-title">「譲れない条件」を絞り込む問いかけ</span>
+            <ul>
+              <li>「この条件が満たされない会社には、絶対に行きたくないか？」→ YESなら譲れない条件</li>
+              <li>「他の条件が全部揃っていれば、この条件は我慢できるか？」→ YESならあればいい条件</li>
+              <li>「今の職場で一番ツライのは何か？」→ それを解消できるかどうかが最優先</li>
+            </ul>
+          </div>
+
+          <p>「譲れない条件」は2〜3個が理想です。多すぎると条件に合う求人がなくなり、転職活動が止まってしまいます。</p>
+        </section>
+
+        <!-- ④ 軸の具体例 -->
+        <section class="section">
+          <h2>④ 転職の軸 具体例15選</h2>
+
+          <p>「転職の軸が思いつかない」という方向けに、よくある軸の具体例を紹介します。自分に近いものにチェックを入れながら読んでみてください。</p>
+
+          <table class="breakdown-table">
+            <thead>
+              <tr>
+                <th>カテゴリ</th>
+                <th>軸の例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>労働環境</td>
+                <td>残業時間が月20時間以内</td>
+              </tr>
+              <tr>
+                <td>労働環境</td>
+                <td>完全週休2日・土日祝休み</td>
+              </tr>
+              <tr>
+                <td>労働環境</td>
+                <td>リモートワーク可（週○日以上）</td>
+              </tr>
+              <tr>
+                <td>収入</td>
+                <td>年収○○万円以上</td>
+              </tr>
+              <tr>
+                <td>収入</td>
+                <td>成果が正当に評価される給与体系</td>
+              </tr>
+              <tr>
+                <td>成長・キャリア</td>
+                <td>専門スキルを身につけられる仕事内容</td>
+              </tr>
+              <tr>
+                <td>成長・キャリア</td>
+                <td>研修制度・資格取得支援がある</td>
+              </tr>
+              <tr>
+                <td>成長・キャリア</td>
+                <td>挑戦できる仕事・裁量をもって働ける</td>
+              </tr>
+              <tr>
+                <td>人間関係</td>
+                <td>お互いを尊重し合える職場文化</td>
+              </tr>
+              <tr>
+                <td>人間関係</td>
+                <td>相談しやすいフラットな組織</td>
+              </tr>
+              <tr>
+                <td>通勤・立地</td>
+                <td>自宅から片道1時間以内</td>
+              </tr>
+              <tr>
+                <td>仕事内容</td>
+                <td>人の役に立てる・社会貢献を感じられる仕事</td>
+              </tr>
+              <tr>
+                <td>仕事内容</td>
+                <td>自分の得意なことを活かせる仕事</td>
+              </tr>
+              <tr>
+                <td>会社・組織</td>
+                <td>安定性がある・倒産リスクが低い</td>
+              </tr>
+              <tr>
+                <td>会社・組織</td>
+                <td>会社のビジョン・理念に共感できる</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>このリストをそのままコピーして、自分に当てはまるものに○をつけ、「譲れない」「あればいい」に分類するだけで、転職の軸の骨格が完成します。</p>
+        </section>
+
+        <!-- ⑤ 軸を面接で伝える -->
+        <section class="section">
+          <h2>⑤ 転職の軸を面接でどう伝えるか</h2>
+
+          <p>転職の軸を明確にしたら、次はそれを面接でどう伝えるかも考えておきましょう。面接では「なぜ転職しようと思ったのですか？」「当社に何を求めていますか？」といった質問が必ず来ます。</p>
+
+          <h3>面接での伝え方の基本構造</h3>
+
+          <p>転職の軸を面接で伝えるときは、<strong>「軸の内容 → 軸を持つに至った理由 → 御社でそれが実現できる理由」</strong>の順番で話すと説得力が増します。</p>
+
+          <div class="example-box">
+            <div class="bad-example">
+              <div class="example-title">伝わりにくい例</div>
+              <div class="example-content">
+                「残業が少なくて、給料が高くて、人間関係が良い会社に転職したいと思っています。」
+              </div>
+              <div class="example-reason">条件の羅列になっており、その背景や理由が伝わっていない。面接官に「不満だけで転職する人」という印象を与えやすい。</div>
+            </div>
+            <div class="good-example">
+              <div class="example-title">伝わりやすい例</div>
+              <div class="example-content">
+                「私の転職の軸は『スキルアップできる環境で働くこと』と『成果が正当に評価されること』の2点です。前職では、業務がルーティン化しており成長の機会が少ない環境でした。御社は○○の研修制度や成果評価制度が整っていると伺い、自分の軸と一致していると感じ志望しました。」
+              </div>
+              <div class="example-reason">軸の内容→理由→志望先との接続が明確で、面接官に「考えて転職している人」という印象を与えられる。</div>
+            </div>
+          </div>
+
+          <div class="tips-box">
+            <span class="box-title">「退職理由」と「転職の軸」は表裏一体</span>
+            <ul>
+              <li>退職理由は「ネガティブな現実」であり、転職の軸は「ポジティブな理想」です</li>
+              <li>面接では退職理由をそのまま話すより、「それを踏まえて何を求めているか（軸）」を前面に出すほうが好印象になります</li>
+              <li>例：「上司との関係が悪くて辞めます」→「お互いを尊重し合えるチーム環境で働くことを大切にしています」と言い換える</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ⑥ 転職の軸チェックシート -->
+        <section class="section">
+          <h2>⑥ 転職の軸チェックシートを使ってみよう</h2>
+
+          <p>ここまで学んだ内容を整理するために、以下のチェックシートを活用してみてください。Googleドキュメントにコピーして、自分の言葉で埋めていくだけで転職の軸が完成します。</p>
+
+          <div class="steps-box">
+            <span class="box-title">転職の軸チェックシート（記入テンプレート）</span>
+            <ul>
+              <li><strong>現職で一番ツラいこと（1〜3個）：</strong>____________________</li>
+              <li><strong>転職でそれをどう解消したいか：</strong>____________________</li>
+              <li><strong>譲れない条件（2〜3個）：</strong>____________________</li>
+              <li><strong>あればいい条件（優先順位をつけて）：</strong>____________________</li>
+              <li><strong>どんな仕事内容がしたいか：</strong>____________________</li>
+              <li><strong>どんな環境・雰囲気で働きたいか：</strong>____________________</li>
+              <li><strong>3年後・5年後にどうなっていたいか：</strong>____________________</li>
+            </ul>
+          </div>
+
+          <p>完璧に埋める必要はありません。今時点で書ける範囲で書いてみて、求人を見ながらブラッシュアップしていくスタイルで大丈夫です。</p>
+
+          <div class="warning-box">
+            <span class="box-title">転職の軸は「変えてもいい」</span>
+            <p>転職活動を進めるなかで、「やっぱりこっちのほうが大事だった」と軸が変わることがあります。それは問題ありません。軸は最初から完璧に決まるものではなく、求人を見たり面接を経験したりしながら、少しずつ磨かれていくものです。</p>
+          </div>
+        </section>
+
+        <!-- まとめ -->
+        <section class="section">
+          <h2>まとめ：まず「不満の言語化」から始めよう</h2>
+
+          <p>転職の軸は、特別な作業ではありません。<strong>「今の会社で何が嫌か」を書き出し、「その反対にある理想」を言葉にする</strong>だけで、軸の骨格はできあがります。</p>
+
+          <table class="breakdown-table">
+            <thead>
+              <tr>
+                <th>やること</th>
+                <th>優先度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>現職での不満リストを書き出す</td>
+                <td>★★★ 今すぐ</td>
+              </tr>
+              <tr>
+                <td>「不満の反対」にある理想を言語化する</td>
+                <td>★★★ 今すぐ</td>
+              </tr>
+              <tr>
+                <td>軸を「譲れない」「あればいい」に分類する</td>
+                <td>★★★ 今すぐ</td>
+              </tr>
+              <tr>
+                <td>面接での伝え方を考えておく</td>
+                <td>★★☆ 求人応募前までに</td>
+              </tr>
+              <tr>
+                <td>求人を見ながら軸をブラッシュアップする</td>
+                <td>★☆☆ 活動中に随時</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>転職の軸が明確になったら、いよいよ「キャリア情報をブラッシュアップする」フェーズへと進んでいきます。軸があると、職務経歴書や面接で伝える内容も自然と整ってきます。</p>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+          <div class="cta-content">
+            <h2 class="cta-title">次のステップへ進みましょう</h2>
+            <p class="cta-description">転職の軸が整ったら、いよいよ書類をブラッシュアップしていきましょう。</p>
+            <p class="cta-description">次の記事では、採用担当者の目に留まるキャリア情報の磨き方をご紹介します。</p>
+            <a href="./article7.html" class="article-link">
+              <span>✏️ キャリア情報をブラッシュアップする</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function pubToggleSidebar() {
+      document.getElementById('pubSidebar').classList.toggle('open');
+      document.getElementById('pubSidebarOverlay').classList.toggle('show');
+    }
+    function pubCloseSidebar() {
+      document.getElementById('pubSidebar').classList.remove('open');
+      document.getElementById('pubSidebarOverlay').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>
