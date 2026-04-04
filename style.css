@@ -245,59 +245,103 @@
   .cta-title { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 2rem; background: linear-gradient(45deg, var(--white), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .cta-description { font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9; }
 
-  /* ===== Experience Box（体験談ボックス）===== */
+  /* ===== Experience Box（体験談ボックス） — 新デザイン案 ===== */
+  /*
+   * デザインコンセプト:
+   *   20〜30代向けのモダン「読者の体験談」カード
+   *   - 全体を枠（border）で囲み、他のboxと統一感を持たせる
+   *   - 大きな引用符で「誰かの声・体験」であることを視覚的に示す
+   *   - 暖かみのある落ち着いたテラコッタ系アクセントカラー
+   *   - アバター風のバッジ（pill形状）でSNS・レビュー欄のような親近感
+   *   - dashed区切りで「投稿欄」ニュアンスを加味
+   */
+
+  /* ── カラー変数（experience専用） ── */
+  :root {
+    --exp-accent:        #e07b4f;
+    --exp-accent-light:  #fdf0ea;
+    --exp-accent-border: #e8a07a;
+    --exp-text-sub:      #7a6b62;
+  }
+
   .experience-box {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 1.8rem 2rem;
+    background: var(--exp-accent-light);
+    border: 2px solid var(--exp-accent-border);
+    border-radius: 16px;
+    padding: 2rem 2rem 1.6rem;
     margin: 2rem 0;
     position: relative;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-    border-left: 4px solid var(--primary-color);
+    box-shadow:
+      0 2px 6px rgba(224, 123, 79, 0.08),
+      0 8px 24px rgba(224, 123, 79, 0.06);
+    overflow: hidden;
   }
+
+  /* 大きな装飾引用符（背景装飾） */
   .experience-box::before {
-    content: '';
+    content: '\201C';
     position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    background: linear-gradient(135deg, rgba(0, 91, 172, 0.04), rgba(32, 201, 151, 0.04));
-    z-index: -1;
+    top: -0.25rem;
+    right: 1.2rem;
+    font-size: 5rem;
+    line-height: 1;
+    font-family: Georgia, serif;
+    color: var(--exp-accent-border);
+    opacity: 0.35;
+    pointer-events: none;
+    user-select: none;
   }
+
+  /* タイトル行（アイコン + ラベル、pill形状バッジ） */
   .experience-box .box-title {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--primary-dark);
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--exp-accent);
+    background: rgba(224, 123, 79, 0.12);
+    border: 1px solid rgba(224, 123, 79, 0.3);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
     margin-bottom: 1rem;
   }
+
+  /* タイトル前のアイコン（人物シルエット） */
   .experience-box .box-title::before {
     content: '';
     display: inline-block;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1rem;
+    height: 1rem;
     flex-shrink: 0;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' stroke='%23005BAC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2h-4l-4 4v-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e07b4f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
   }
+
+  /* 本文テキスト（イタリック体で語り口を演出） */
   .experience-box p {
     font-size: 1.02rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    font-style: italic;
   }
-  .experience-box p:last-child {
+  .experience-box p:last-of-type {
     margin-bottom: 0;
   }
+
+  /* まとめ・補足（破線区切り） */
   .experience-summary {
-    font-size: 0.98rem;
-    color: var(--text-secondary);
-    border-top: 1px dashed var(--medium-bg);
-    padding-top: 0.8rem;
-    margin-top: 0.5rem;
+    font-size: 0.93rem;
+    color: var(--exp-text-sub);
+    border-top: 1.5px dashed var(--exp-accent-border);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    font-style: normal;
   }
 
   /* ===== Phase Card（フェーズカード）===== */
