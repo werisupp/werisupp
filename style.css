@@ -1,4 +1,3 @@
-
   /* ===== ヘッダー（固定） ===== */
   .pub-header {
     position: fixed;
@@ -488,51 +487,94 @@
   /* Animations */
   @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* Responsive - スマホ対応（style.htmlと同じ基準） */
+  /* ===== スマートフォン対応（モバイルファースト調整） ===== */
   @media only screen and (max-width: 1000px) {
+    /* 基本フォントサイズをリセット（ブラウザデフォルト16pxを維持） */
     html, body {
-      font-size: 32px !important;
+      font-size: 16px;
     }
-    .container { padding: 0 1rem; }
-    .article-content { padding: 3rem 0; }
-    .section { margin-bottom: 3rem; }
-    .table-of-contents { padding: 1.5rem; }
-    .final-cta { padding: 2rem 1rem; }
-    .breakdown-table th, .breakdown-table td { padding: 0.75rem 0.5rem; }
-    .section h2 { padding-left: 0.75rem; }
-    .section h4 { padding-left: 2rem; }
+
+    /* コンテナの横余白を縮小してテキスト表示幅を確保 */
+    .container { padding: 0 0.75rem; }
+
+    /* 本文・リストのフォントサイズを読みやすいサイズに調整 */
+    .section p,
+    .section ul li,
+    .section ol li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* 見出しのサイズ調整 */
+    .section h2 { font-size: 1.15rem; padding-left: 0.75rem; }
+    .section h3 { font-size: 1.05rem; }
+    .section h4 { font-size: 0.95rem; padding-left: 2rem; }
+
+    /* ボックス系コンポーネントのフォントサイズ統一 */
+    .reader-feelings-box li,
+    .highlight-box ul li,
+    .warning-box ul li,
+    .tips-box ul li,
+    .steps-box ul li,
+    .experience-box p,
+    .phase-card p,
+    .step-description p,
+    .step-description ul li {
+      font-size: 0.95rem;
+    }
+
+    /* ボックスの内側余白を縮小 */
     .highlight-box, .warning-box, .tips-box, .danger-box, .steps-box, .experience-box {
-      padding: 1.5rem;
-      margin: 1.5rem 0;
+      padding: 1.2rem;
+      margin: 1.2rem 0;
     }
+    .table-of-contents { padding: 1.2rem; }
+
+    /* 目次リンクのサイズ調整 */
+    .toc-link-h2 { font-size: 0.95rem; }
+    .toc-link-h3 { font-size: 0.88rem; }
+    .toc-link-h4 { font-size: 0.84rem; }
+
+    /* テーブルの余白とフォントサイズを縮小 */
+    .breakdown-table th,
+    .breakdown-table td { padding: 0.6rem 0.5rem; font-size: 0.88rem; }
+
+    /* レイアウト余白の調整 */
+    .article-content { padding: 2rem 0; }
+    .section { margin-bottom: 2.5rem; }
+    .final-cta { padding: 1.5rem 1rem; }
+
+    /* ヘッダーをスマホ向けにコンパクト化 */
     .pub-header {
-      height: 90px;
-      padding: 0 20px;
+      height: 54px;
+      padding: 0 14px;
     }
+    .pub-header-title { font-size: 1rem; }
     .pub-sidebar {
-      top: 90px;
-      height: calc(100vh - 90px);
+      top: 54px;
+      height: calc(100vh - 54px);
     }
     .pub-page-body {
-      padding-top: 100px;
+      padding-top: 64px;
     }
+
     /* Step Item スマホ対応 */
     .step-header {
-      padding: 0.9rem 1.2rem;
-      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
     }
     .step-title {
-      font-size: 1rem;
+      font-size: 0.92rem;
       width: 100%;
     }
     .step-duration {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
     }
     .step-description {
-      padding: 1.2rem;
+      padding: 1rem;
     }
     .step-description + .article-link,
     .step-item > .article-link {
-      margin: 0 1.2rem 1.2rem 1.2rem;
+      margin: 0 1rem 1rem 1rem;
     }
   }
