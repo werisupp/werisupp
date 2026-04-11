@@ -484,8 +484,10 @@
       font-size: 16px;
     }
 
-    /* コンテナの横余白を縮小してテキスト表示幅を確保 */
-    .container { padding: 0 0.75rem; }
+    /* コンテナの横余白を調整：本文1文字分（約0.95rem）横幅を短くする */
+    /* 変更前: padding: 0 0.75rem → 変更後: padding: 0 1.2rem */
+    /* 左右合計で +0.9rem（≒ 0.95rem × 1文字分）短縮 */
+    .container { padding: 0 1.2rem; }
 
     /* 本文・リストのフォントサイズを読みやすいサイズに調整 */
     .section p,
@@ -500,7 +502,7 @@
     .section h3 { font-size: 1.05rem; }
     .section h4 { font-size: 0.95rem; padding-left: 2rem; }
 
-    /* ボックス系コンポーネントのフォントサイズ統一 */
+    /* ボックス系コンポーネントの本文フォントサイズ統一 */
     .reader-feelings-box li,
     .highlight-box ul li,
     .warning-box ul li,
@@ -510,6 +512,17 @@
     .phase-card p,
     .step-description p,
     .step-description ul li {
+      font-size: 0.95rem;
+    }
+
+    /* 各box内の見出し（.box-title）を本文と同じフォントサイズに統一 */
+    .reader-feelings-box .box-title,
+    .highlight-box .box-title,
+    .warning-box .box-title,
+    .tips-box .box-title,
+    .danger-box .box-title,
+    .steps-box .box-title,
+    .experience-box .box-title {
       font-size: 0.95rem;
     }
 
