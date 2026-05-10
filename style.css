@@ -100,6 +100,11 @@
       --white: #ffffff;
       --shadow: rgba(0, 91, 172, 0.1);
       --shadow-hover: rgba(0, 91, 172, 0.2);
+      /* 体験談ボックス用カラー（琥珀色系） */
+      --experience-bg: #fffbf0;
+      --experience-border: #d4a017;
+      --experience-title: #7a5200;
+      --experience-summary-bg: #fff3cd;
   }
   body { font-family: 'Inter', 'Segoe UI', sans-serif; line-height: 1.6; color: var(--text-primary); background: var(--white); overflow-x: hidden; scroll-behavior: smooth; }
   .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
@@ -246,18 +251,23 @@
   .cta-description { font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9; }
 
   /* ===== Experience Box（体験談ボックス） ===== */
+  /*
+   * 琥珀色・アンバー系のデザインで他のボックスと視覚的に区別。
+   * 「著者の実体験」であることを一目で伝えるスタイル。
+   * モバイルでも読みやすいよう余白・フォントサイズを最適化。
+   */
   .experience-box {
-    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
-    border: 2px solid #e9ecef;
+    background: var(--experience-bg);
+    border: 2px solid var(--experience-border);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 16px rgba(212, 160, 23, 0.12);
   }
 
   .experience-box .box-title {
-    color: var(--text-primary);
+    color: var(--experience-title);
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -266,7 +276,7 @@
     gap: 0.5rem;
   }
 
-  /* 人物アイコン（reader-feelings-boxのチャットアイコンと同スタイル） */
+  /* 人物アイコン（琥珀色系） */
   .experience-box .box-title::before {
     content: '';
     display: inline-block;
@@ -276,7 +286,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a5200' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
   }
 
   .experience-box p {
@@ -287,6 +297,19 @@
   }
   .experience-box p:last-of-type {
     margin-bottom: 0;
+  }
+
+  /* 体験談の締め（まとめ・教訓）パラグラフ */
+  .experience-box .experience-summary {
+    background: var(--experience-summary-bg);
+    border-left: 4px solid var(--experience-border);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.2rem;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--experience-title);
+    font-weight: 500;
   }
 
 
@@ -489,8 +512,6 @@
     }
 
     /* コンテナの横余白を調整：本文1文字分（約0.95rem）横幅を短くする */
-    /* 変更前: padding: 0 0.75rem → 変更後: padding: 0 1.2rem */
-    /* 左右合計で +0.9rem（≒ 0.95rem × 1文字分）短縮 */
     .container { padding: 0 1.2rem; }
 
     /* 本文・リストのフォントサイズを読みやすいサイズに調整 */
@@ -513,6 +534,7 @@
     .tips-box ul li,
     .steps-box ul li,
     .experience-box p,
+    .experience-box .experience-summary,
     .phase-card p,
     .step-description p,
     .step-description ul li {
