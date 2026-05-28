@@ -30,23 +30,22 @@
   }
 
   /* 今日のゴールボックス */
-  .goal-box {
-    background: #e8f5e9;
-    border-left: 4px solid #43a047;
-    border-radius: 6px;
+  .today-goal-box {
+    background: #f0f9f0;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
     padding: 1.2rem 1.5rem;
     margin: 1.5rem 0;
   }
-  .goal-box .box-title {
+  .today-goal-box .box-title {
     color: #2e7d32;
     font-weight: 700;
     font-size: 1.05rem;
     display: block;
     margin-bottom: 0.6rem;
   }
-  .goal-box p {
-    margin: 0;
-    color: #1b5e20;
+  .today-goal-box p {
+    margin: 0 0 0.5rem;
     font-size: 0.97rem;
   }
 
@@ -54,95 +53,68 @@
   .difficulty-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.5rem 0;
+    margin: 1rem 0 1.5rem;
     font-size: 0.95rem;
   }
   .difficulty-table th {
-    background: var(--primary-color, #1976d2);
+    background: var(--primary-color, #1a73e8);
     color: #fff;
-    padding: 0.6rem 0.9rem;
+    padding: 0.6rem 0.8rem;
     text-align: left;
+    font-weight: 600;
   }
   .difficulty-table td {
-    padding: 0.55rem 0.9rem;
+    padding: 0.55rem 0.8rem;
     border-bottom: 1px solid #e0e0e0;
-    vertical-align: top;
+    vertical-align: middle;
   }
   .difficulty-table tr:nth-child(even) td {
-    background: #f5f5f5;
+    background: #f7f7f7;
   }
-  .difficulty-table .diff-easy { color: #43a047; font-weight: 600; }
-  .difficulty-table .diff-mid  { color: #f57c00; font-weight: 600; }
-  .difficulty-table .diff-hard { color: #e53935; font-weight: 600; }
-
-  /* 武器づくり対比 */
-  .compare-flow {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 1.2rem 0;
-  }
-  .compare-flow .flow-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  .compare-flow .flow-row .flow-label {
-    min-width: 160px;
-    font-weight: 700;
-    padding: 0.25rem 0.6rem;
+  .difficulty-table .tag-easy {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
     border-radius: 4px;
-    font-size: 0.88rem;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
-  .compare-flow .flow-row.bad .flow-label  { background: #ffebee; color: #c62828; }
-  .compare-flow .flow-row.good .flow-label { background: #e8f5e9; color: #2e7d32; }
-  .compare-flow .flow-row .flow-arrow { color: #9e9e9e; font-size: 1.1rem; }
+  .difficulty-table .tag-hard {
+    display: inline-block;
+    background: #fff3e0;
+    color: #e65100;
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
 
-  /* 次のSTEPへの導線ボックス */
+  /* 次STEPへの導線ボックス */
   .next-step-box {
-    background: #e3f2fd;
-    border: 1px solid #90caf9;
+    background: #e8f4fd;
+    border: 2px solid #1a73e8;
     border-radius: 8px;
     padding: 1.4rem 1.6rem;
     margin: 2rem 0;
   }
   .next-step-box .box-title {
-    color: #1565c0;
+    color: #1a4e8c;
     font-weight: 700;
     font-size: 1.05rem;
     display: block;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
   }
   .next-step-box p {
     margin: 0 0 0.8rem;
-    color: #0d47a1;
     font-size: 0.97rem;
   }
-  .next-step-box a {
+  .next-step-box .step-link {
     display: inline-block;
-    background: #1976d2;
-    color: #fff;
-    padding: 0.5rem 1.2rem;
-    border-radius: 5px;
-    text-decoration: none;
+    margin-top: 0.3rem;
     font-weight: 600;
-    font-size: 0.95rem;
-  }
-  .next-step-box a:hover { background: #1565c0; }
-
-  /* H2セクション区切りラベル */
-  .section-phase-label {
-    display: inline-block;
-    background: var(--primary-color, #1976d2);
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.15rem 0.7rem;
-    border-radius: 3px;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
+    color: #1a73e8;
+    text-decoration: underline;
   }
   </style>
 </head>
@@ -212,15 +184,16 @@
 </ul>
 </div>
 
-<div class="goal-box">
-<span class="box-title">✅ 今日このページを読み終えたら…</span>
-<p>転職サービスへのキャリア情報登録が「一通り完成」した状態になります。<br>
-完璧でなくていい。まず「埋まっている」状態を目指しましょう。</p>
+<div class="today-goal-box">
+<span class="box-title">✅ 今日のゴール</span>
+<p>このページを読み終えたら、転職サービスへのキャリア情報登録が<strong>「一通り完成」した状態</strong>になります。</p>
+<p>完璧でなくて大丈夫。まず「埋まっている」状態を目指しましょう。</p>
 </div>
 
 <p>その気持ち、よくわかります。</p>
 <p>STEP③で転職サービスへの登録が完了し、「さあ、これから情報を入力しよう」と思ったものの、画面を開いてみると入力項目がたくさんあって、「何をどう書けばいいんだろう？」と手が止まってしまう。</p>
 <p>特に初めての転職活動だと、「職務経歴書」「職務要約」「自己PR」といった言葉すら馴染みがなく、「どこから手をつければいいのか」と途方に暮れてしまいますよね。</p>
+
 <p>でも、実はこのキャリア情報の登録こそが、<strong>転職成功への最大の分かれ道</strong>なんです。</p>
 
 <div class="warning-box">
@@ -230,24 +203,64 @@
 <p><strong>ここで手を抜くと、「検索結果に出てこない」「スカウトが届かない」「推薦してもらえない」という状態になりやすい</strong>のです。</p>
 </div>
 
-<p>この記事では、7つの登録項目を「今日中にサクッと埋められるもの」と「じっくり丁寧に書くもの」に分けてガイドします。まずは今日の全体像を確認しましょう。</p>
+<p>7つの登録項目は、大きく2種類に分かれます。まずこの全体像をつかんでから進みましょう。</p>
 
 <table class="difficulty-table">
 <thead>
-<tr><th>項目</th><th>難易度</th><th>今日やること</th></tr>
+<tr>
+<th>項目</th>
+<th>難易度</th>
+<th>今日やること</th>
+</tr>
 </thead>
 <tbody>
-<tr><td>基本情報</td><td class="diff-easy">★☆☆</td><td>そのまま入力するだけ</td></tr>
-<tr><td>学歴</td><td class="diff-easy">★☆☆</td><td>学校名・卒業年月を正確に</td></tr>
-<tr><td>保有資格・スキル</td><td class="diff-easy">★☆☆</td><td>持っているものを全部記載</td></tr>
-<tr><td>希望条件</td><td class="diff-mid">★★☆</td><td>「譲れない条件」だけ3つまで</td></tr>
-<tr><td>職務経歴</td><td class="diff-hard">★★★</td><td>まず事実を箇条書きにする</td></tr>
-<tr><td>職務要約</td><td class="diff-hard">★★★</td><td>3〜5行でいい。ドラフトでOK</td></tr>
-<tr><td>自己PR</td><td class="diff-hard">★★★</td><td>強み1つ＋エピソード1つだけ</td></tr>
+<tr>
+<td>①基本情報</td>
+<td><span class="tag-easy">すぐ書ける</span></td>
+<td>そのまま正確に入力するだけ</td>
+</tr>
+<tr>
+<td>②学歴</td>
+<td><span class="tag-easy">すぐ書ける</span></td>
+<td>学校名・卒業年月を正確に</td>
+</tr>
+<tr>
+<td>⑥保有資格・スキル</td>
+<td><span class="tag-easy">すぐ書ける</span></td>
+<td>持っているものを全部記載</td>
+</tr>
+<tr>
+<td>⑦希望条件</td>
+<td><span class="tag-easy">すぐ書ける</span></td>
+<td>「譲れない条件」だけ3つまで</td>
+</tr>
+<tr>
+<td>③職務経歴</td>
+<td><span class="tag-hard">じっくり書く</span></td>
+<td>まず仕事の事実を箇条書きにする</td>
+</tr>
+<tr>
+<td>④職務要約</td>
+<td><span class="tag-hard">じっくり書く</span></td>
+<td>3〜5行のドラフトでOK</td>
+</tr>
+<tr>
+<td>⑤自己PR</td>
+<td><span class="tag-hard">じっくり書く</span></td>
+<td>強み1つ＋エピソード1つだけ</td>
+</tr>
 </tbody>
 </table>
 
-<p><strong>★★★の3項目（職務経歴・職務要約・自己PR）の完成度を高める方法は、STEP⑤でまとめて解説します。</strong>このページでは「まず書き出せている状態」を目指しましょう。</p>
+<p>この記事では、転職活動が初めてのあなたでも、</p>
+<ul>
+<li>各転職サービスで「何を」「どのように」書けばいいのか</li>
+<li>企業やエージェントが「どんな視点で」あなたの情報を見ているのか</li>
+<li>「良い例」と「悪い例」の違いは何なのか</li>
+<li>会社にバレないために気をつけるべきポイントは何か</li>
+</ul>
+<p>を、できるだけ具体的にわかりやすく解説していきます。</p>
+<p><strong>キャリア情報の登録を「武器づくり」として戦略的に進める</strong>ことで、転職成功への道が大きく開けていきます。</p>
 </section>
 
 <section class="table-of-contents">
@@ -255,40 +268,46 @@
 <div id="toc-container"></div>
 </section>
 
-<!-- ===== H2① 武器づくりとは何か ===== -->
 <section class="section">
 <h2>キャリア情報の登録は「武器づくり」——何がどう変わるのか</h2>
-<p>キャリア情報の登録は、<strong>転職サイトと転職エージェントでそれぞれ異なる使われ方</strong>をします。この仕組みを知ることで、「どこを丁寧に書くべきか」が自然にわかるようになります。</p>
+<p>同じ経歴を持つ2人が転職サービスに登録したとき、結果には大きな差が生まれることがあります。その差は、情報をどう入力したか、ただそれだけで決まります。</p>
 
-<p>転職サイト（リクナビNEXT・マイナビ転職・dodaなど）では、企業の採用担当者が職種・業種・スキル・資格などの条件で候補者を検索し、気になる人にスカウトを送ります。つまりあなたが登録した情報は、<strong>「見つけてもらうための看板」</strong>として機能します。</p>
-
-<p>転職エージェント（リクルートエージェント・マイナビエージェント・dodaエージェントなど）では、キャリアアドバイザーがあなたの経歴・スキル・希望条件をもとにマッチする求人を紹介し、企業への推薦状を作成します。つまりここでの情報は、<strong>「アドバイザーが動いてくれるための材料」</strong>になります。</p>
-
-<div class="compare-flow">
-<div class="flow-row bad">
-  <span class="flow-label">「登録作業」として入力</span>
-  <span class="flow-arrow">→</span>
-  <span>空欄・薄い内容 → 検索にも引っかからない → スカウトが届かない → 選考に進めない</span>
-</div>
-<div class="flow-row good">
-  <span class="flow-label">「武器づくり」として入力</span>
-  <span class="flow-arrow">→</span>
-  <span>企業の検索にヒット → スカウトが届く → 面接機会が増える → 内定に近づく</span>
-</div>
+<div class="highlight-box">
+<span class="box-title">「登録作業」と「武器づくり」の違い</span>
+<ul>
+<li><strong>「登録作業」として入力する人：</strong>空欄が多い・内容が薄い → 企業の検索にヒットしない → スカウトが届かない</li>
+<li><strong>「武器づくり」として入力する人：</strong>企業が検索するキーワードを意識して入力 → 検索にヒットする → スカウトが届く → 内定に近づく</li>
+</ul>
 </div>
 
-<p>同じ経歴でも、書き方ひとつで「存在しないも同然」になるか「引く手あまた」になるかが変わります。このSTEPのゴールは、あなたの情報を「武器として機能する状態」にすることです。</p>
+<p>キャリア情報の登録は、<strong>転職サイトと転職エージェントでそれぞれ異なる使われ方</strong>をします。この違いを理解しておくことで、「どの項目を重点的に書くべきか」が明確になります。</p>
+
+<h3>転職サイトでのキャリア情報の使われ方</h3>
+<p>リクナビNEXT、マイナビ転職、dodaなどの転職サイトでは、あなたが登録したWeb履歴書・レジュメが次のように使われています。</p>
+<ul>
+<li><strong>企業がデータベース検索であなたを探すための「検索キー」</strong><br>
+企業の採用担当者は、職種・業種・勤務地・スキル・資格・経験年数などの条件で候補者を検索します。あなたの情報がしっかり入力されていないと、そもそも検索結果に表示されません。</li>
+<li><strong>企業があなたにスカウトを送るかどうか判断する「材料」</strong><br>
+検索結果に表示されても、職務内容や実績が薄いと「この人にスカウトを送る価値があるか？」と判断されず、スカウトが届きません。</li>
+</ul>
+
+<h3>転職エージェントでのキャリア情報の使われ方</h3>
+<p>リクルートエージェント、マイナビエージェント、dodaエージェントなどのエージェントサービスでは、あなたが登録したキャリアシートや職務経歴書が次のように使われています。</p>
+<ul>
+<li><strong>キャリアアドバイザーがどの求人を紹介するか判断する「マッチングの材料」</strong><br>
+アドバイザーは、あなたの経歴・スキル・希望条件を見て、どの求人とマッチするかを判断します。情報が薄いと、紹介される求人の精度が下がります。</li>
+<li><strong>企業に送る推薦状を書くための「材料」</strong><br>
+アドバイザーは、あなたの職務経歴書をもとに推薦状を作成します。ここが薄いと、推薦状も弱くなり、書類選考の通過率が下がります。</li>
+</ul>
 </section>
 
-<!-- ===== H2② 基本4項目 ===== -->
 <section class="section">
-<span class="section-phase-label">PHASE 1</span>
 <h2>今日中に完成させる：4つの基本項目</h2>
-<p>以下の4項目は、難しい表現や実績がなくても<strong>今日中にサクッと埋められます</strong>。まずここを完成させて「登録が進んでいる」という達成感を得ましょう。</p>
+<p>まずは「すぐ書ける」4つの基本項目を埋めましょう。どれも事実を正確に入力するだけで完成します。この4項目を終わらせると、登録全体の土台ができあがります。</p>
 
 <h3>①基本情報（氏名・連絡先・住所）</h3>
-<p>基本情報は「簡単だから後でいいか」と雑に入力してしまいがちな項目です。でも、ここが間違っていると企業からの面接連絡が届かない、というシンプルで致命的なミスにつながります。</p>
-
+<p>基本情報は「簡単だから後でいいか」と雑に入力してしまいがちな項目です。</p>
+<p>でも、ここが間違っていると企業からの面接連絡が届かない、というシンプルで致命的なミスにつながります。たった数分の入力ですが、丁寧に確認しながら進めましょう。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -300,7 +319,7 @@
 <li>メールアドレス</li>
 </ul>
 </div>
-
+<p>「個人情報を入力するのが少し怖い…」と感じる方もいると思います。どこまで見られるのかが分かると、不安を減らしたうえで入力できます。</p>
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -308,7 +327,7 @@
 <li><strong>エージェント側：</strong>登録時にすべて把握し、求人紹介・連絡・面接調整などに使用します。</li>
 </ul>
 </div>
-
+<p>特に見直しておきたいのがメールアドレスです。学生時代に作ったままのアドレスや、私用感の強い表記は、このタイミングで整えておきましょう。</p>
 <div class="tips-box">
 <span class="box-title">書き方のポイント</span>
 <ul>
@@ -317,7 +336,6 @@
 <li>電話番号は、日中でも連絡が取れる番号を優先（携帯推奨）</li>
 </ul>
 </div>
-
 <div class="example-box">
 <div class="bad-example">
 <div class="example-title">悪い例</div>
@@ -337,8 +355,8 @@
 </div>
 
 <h3>②学歴</h3>
-<p>学歴は、職務経歴ほど長く書く項目ではありませんが、プロフィール全体の信頼感を支える土台になります。中途採用では「学歴で決まる」というより、記載が雑ではないか、経歴に違和感がないかを見られています。</p>
-
+<p>学歴は、職務経歴ほど長く書く項目ではありませんが、プロフィール全体の信頼感を支える土台になります。</p>
+<p>中途採用では「学歴で決まる」というより、記載が雑ではないか、経歴に違和感がないかを見られています。だからこそ、短くても正確にそろえておくことが大切です。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -348,7 +366,6 @@
 <li>卒業見込み／中途退学などの状況</li>
 </ul>
 </div>
-
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -356,7 +373,6 @@
 <li><strong>エージェント側：</strong>学歴は職務経歴とセットで「キャリアの流れ」を把握する材料です。</li>
 </ul>
 </div>
-
 <div class="tips-box">
 <span class="box-title">書き方のポイント</span>
 <ul>
@@ -366,7 +382,6 @@
 <li>中退・休学の場合も事実を記載し、面談で事情を説明</li>
 </ul>
 </div>
-
 <div class="example-box">
 <div class="bad-example">
 <div class="example-title">悪い例</div>
@@ -386,8 +401,8 @@
 </div>
 
 <h3>③保有資格・スキル</h3>
-<p>保有資格・スキルは、「持っているかどうか」がそのまま検索条件や応募条件に関わる項目です。特に未経験職種や経験が浅い職種を目指す場合は、資格や学習状況が意欲の裏づけになることもあります。</p>
-
+<p>保有資格・スキルは、「持っているかどうか」がそのまま検索条件や応募条件に関わる項目です。</p>
+<p>特に未経験職種や経験が浅い職種を目指す場合は、資格や学習状況が意欲の裏づけになることもあります。数が多いかよりも、希望職種とのつながりが見えることを意識しましょう。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -397,7 +412,6 @@
 <li>スキルレベル・習熟度</li>
 </ul>
 </div>
-
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -405,20 +419,19 @@
 <li><strong>エージェント側：</strong>求人の必須条件と照合し、マッチ度を判断します。</li>
 </ul>
 </div>
-
 <div class="tips-box">
 <span class="box-title">書き方のポイント</span>
 <ul>
-<li>希望職種に関連する資格を優先的に記載</li>
+<li>希望職種に関連する資格を優先的に記載（保有資格が多い場合は絞り込む）</li>
 <li>資格名は正式名称で記載（例：「簿記2級」→「日商簿記検定試験2級」）</li>
-<li>取得年月もあわせて記載する</li>
+<li>取得年月も合わせて記載する</li>
 <li>勉強中の資格は「◯◯取得に向けて勉強中」と記載してもOK</li>
 </ul>
 </div>
 
 <h3>④希望条件（本人希望欄）</h3>
-<p>希望条件は、「自分の要望を書く欄」と考えると、つい細かく書きたくなる項目です。ただ、ここはわがままを並べる場所ではなく、ミスマッチを防ぐための整理欄です。<strong>「どうしても譲れない条件」だけに絞って伝える</strong>ほど、企業にもエージェントにも意図が伝わりやすくなります。</p>
-
+<p>希望条件は、「自分の要望を書く欄」と考えると、つい細かく書きたくなる項目です。</p>
+<p>ただ、ここはわがままを並べる場所ではなく、ミスマッチを防ぐための整理欄です。譲れない条件を絞って伝えるほど、企業にもエージェントにも意図が伝わりやすくなります。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -429,7 +442,6 @@
 <li>その他の譲れない条件</li>
 </ul>
 </div>
-
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -437,14 +449,12 @@
 <li><strong>エージェント側：</strong>求人を探す際の検索条件として使います。</li>
 </ul>
 </div>
-
 <div class="tips-box">
 <span class="box-title">書き方のポイント</span>
 <ul>
 <li>「どうしても譲れない条件」のみ記載（細かい条件をすべて書くと選考に不利）</li>
 <li>特にない場合は「貴社の規定に従います」と記載</li>
 <li>希望職種が複数ある場合は、希望職種を明記</li>
-<li>希望を書く際は理由も簡潔に添えると、企業側の理解が得られやすい</li>
 </ul>
 </div>
 
@@ -455,15 +465,14 @@
 </div>
 </section>
 
-<!-- ===== H2③ 核心3項目 ===== -->
 <section class="section">
-<span class="section-phase-label">PHASE 2</span>
 <h2>じっくり書く：あなたの価値が伝わる3つの核心項目</h2>
-<p>以下の3項目は、転職成功を左右する最も重要な項目です。<strong>この段階では「完璧な文章」を書く必要はありません。</strong>まず事実を書き出すことを優先してください。磨き上げる方法はSTEP⑤でまとめて解説します。</p>
+<p>ここからの3項目は、企業やエージェントがあなたを評価するうえで最も重要な部分です。最初から完璧な文章にしようとしなくて大丈夫です。まず「事実を書き出す」ことから始めましょう。</p>
+<p>この段階では「だいたいこんな仕事をしてきた人」が伝わる状態を目指せばOKです。さらに磨きをかける方法は<strong>STEP⑤</strong>で詳しく解説します。</p>
 
 <h3>①職務経歴（職歴）</h3>
-<p>職務経歴は、キャリア情報の中でもいちばん悩みやすく、同時にいちばん重要な項目です。「上司に怒られてばかりで成果がない」「自分には大した経験がない」と感じている方ほど手が止まりやすいですが、最初から立派な文章を書く必要はありません。まずは仕事の事実を言葉にするところから始めれば大丈夫です。</p>
-
+<p>職務経歴は、キャリア情報の中でもいちばん悩みやすく、同時にいちばん重要な項目です。</p>
+<p>「上司に怒られてばかりで成果がない」「自分には大した経験がない」と感じている方ほど、ここで手が止まりやすいですが、最初から立派な文章を書く必要はありません。まずは、仕事の事実を言葉にするところから始めれば大丈夫です。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -477,7 +486,7 @@
 <li>実績・成果（売上・改善効果など）</li>
 </ul>
 </div>
-
+<p>企業やエージェントは、あなたの職歴を「すごいかどうか」だけで見ているわけではありません。どんな仕事を、どのくらいの期間、どんな立場で担当してきたのかを読み取ろうとしています。</p>
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -485,7 +494,15 @@
 <li><strong>エージェント側：</strong>職務経歴書をもとに、どの求人とマッチするか、推薦状に何を書くかを判断します。</li>
 </ul>
 </div>
-
+<div class="tips-box">
+<span class="box-title">書き方のポイント</span>
+<ul>
+<li>希望職種に関係する経験を詳しく、それ以外は簡潔に</li>
+<li>業務内容は「何を・どの規模で・どのように・どんな成果を出したか」を具体的に</li>
+<li>実績は数字で定量化する（売上額・達成率・工数削減時間・顧客数・順位など）</li>
+<li>実績の記載が難しい場合は、担当した案件の経験数や「工夫したポイント」を記載</li>
+</ul>
+</div>
 <div class="tips-box">
 <span class="box-title">まずは「事実」を書き出すことから始めよう</span>
 <p>この段階では、<strong>完璧な文章にする必要はありません</strong>。まずは以下の「事実」を箇条書きで書き出しましょう。</p>
@@ -497,7 +514,6 @@
 <li>どのくらいの規模を担当していたか（顧客数、処理件数、金額など）</li>
 </ul>
 </div>
-
 <div class="example-box">
 <div class="bad-example">
 <div class="example-title">悪い例</div>
@@ -519,20 +535,14 @@
 ・月平均30社を担当
 </div>
 <div class="example-reason">
-この段階では、業務の「事実」を具体的に書き出せていればOKです。
+この段階では、業務の「事実」を具体的に書き出せていればOKです。数字や成果の書き方はSTEP⑤で学びます。
 </div>
 </div>
-</div>
-
-<div class="tips-box">
-<span class="box-title">書き方のポイント（詳しくはSTEP⑤で）</span>
-<p>この段階では「事実を書き出す」だけでOKです。<br>
-実績・数字・強みの磨き方はSTEP⑤でまとめて解説します。</p>
 </div>
 
 <h3>②職務要約（職務概要）</h3>
-<p>職務要約は、あなたの職歴全体を短く伝える「最初のひとこと」のような項目です。長い職務経歴を全部読まなくても、「この人はどんな仕事をしてきたのか」がざっくりつかめるかどうかで、読み手の印象は大きく変わります。</p>
-
+<p>職務要約は、あなたの職歴全体を短く伝える「最初のひとこと」のような項目です。</p>
+<p>長い職務経歴を全部読まなくても、「この人はどんな仕事をしてきたのか」がざっくりつかめるかどうかで、読み手の印象は大きく変わります。とはいえ、この段階では上手な要約より、方向性が伝わることを優先すれば十分です。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ul>
@@ -544,7 +554,7 @@
 <li>今後の志向（任意）</li>
 </ul>
 </div>
-
+<p>職務要約は短いぶん、企業やエージェントはここを"入口"として読んでいます。だからこそ、細かさよりも全体像の分かりやすさが大切です。</p>
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -552,7 +562,15 @@
 <li><strong>エージェント側：</strong>求職者の全体像を把握し、どの求人にマッチするかを素早く判断します。</li>
 </ul>
 </div>
-
+<div class="tips-box">
+<span class="box-title">書き方のポイント</span>
+<p>まずは、次のポイントだけ押さえて簡単にまとめておきましょう。</p>
+<ul>
+<li><strong>経験年数：</strong>「○○業界で○年」のように書く</li>
+<li><strong>主な職種：</strong>「営業職」「事務職」など</li>
+<li><strong>担当業務：</strong>「新規開拓」「顧客対応」など、メインの業務を1〜2つ</li>
+</ul>
+</div>
 <div class="example-box">
 <div class="bad-example">
 <div class="example-title">悪い例</div>
@@ -569,20 +587,14 @@
 IT業界で3年、法人向け営業として従事。新規顧客開拓と既存顧客フォローを担当。月平均30社を担当し、提案書作成から契約まで一貫して対応してきました。
 </div>
 <div class="example-reason">
-具体的な業界・職種・業務内容が書かれていればOKです。
+具体的な業界・職種・業務内容が書かれていればOKです。実績や強みの書き方はSTEP⑤で学びます。
 </div>
 </div>
-</div>
-
-<div class="tips-box">
-<span class="box-title">書き方のポイント（詳しくはSTEP⑤で）</span>
-<p>この段階では「事実を書き出す」だけでOKです。<br>
-実績・数字・強みの磨き方はSTEP⑤でまとめて解説します。</p>
 </div>
 
 <h3>③自己PR</h3>
-<p>自己PRは、「自分の強みをうまく言語化できない」と感じやすい項目です。特に、今の職場で自信をなくしていると「PRできることなんてない」と思いやすいですが、ここで求められているのは立派な実績の自慢ではありません。あなたが仕事でどう考え、どう動いてきたかを伝えることができれば十分です。</p>
-
+<p>自己PRは、「自分の強みをうまく言語化できない」と感じやすい項目です。</p>
+<p>特に、今の職場で自信をなくしていると「PRできることなんてない」と思いやすいですが、ここで求められているのは立派な実績の自慢ではありません。あなたが仕事でどう考え、どう動いてきたかを伝えることができれば十分です。</p>
 <div class="steps-box">
 <span class="box-title">何を書くか</span>
 <ol>
@@ -590,7 +602,6 @@ IT業界で3年、法人向け営業として従事。新規顧客開拓と既�
 <li><strong>その強みが活きた経験</strong>（簡単なエピソード）</li>
 </ol>
 </div>
-
 <div class="highlight-box">
 <span class="box-title">企業・エージェント目線での読み方</span>
 <ul>
@@ -598,7 +609,14 @@ IT業界で3年、法人向け営業として従事。新規顧客開拓と既�
 <li><strong>エージェント側：</strong>推薦状で「この人のどこを推すか」を考える材料にします。</li>
 </ul>
 </div>
-
+<div class="tips-box">
+<span class="box-title">書き方のポイント</span>
+<ul>
+<li>自分の強みを<strong>1つ</strong>挙げる（「コミュニケーション力」「責任感」「粘り強さ」など）</li>
+<li>その強みが活きた<strong>具体的なエピソード</strong>を1つ書く</li>
+<li>「頑張りました」だけではなく、<strong>「何を・どうしたか」</strong>を書く</li>
+</ul>
+</div>
 <div class="tips-box">
 <span class="box-title">「自分の強み」がわからない場合は？</span>
 <p>「自分には強みなんてない…」と感じている方は、次のように考えてみましょう。</p>
@@ -609,7 +627,6 @@ IT業界で3年、法人向け営業として従事。新規顧客開拓と既�
 <li>仕事で「やりがい」を感じた瞬間は？</li>
 </ul>
 </div>
-
 <div class="example-box">
 <div class="bad-example">
 <div class="example-title">悪い例</div>
@@ -626,31 +643,31 @@ IT業界で3年、法人向け営業として従事。新規顧客開拓と既�
 私の強みは「コミュニケーション力」です。前職では、顧客からの問い合わせ対応を担当していました。クレーム対応では、まず相手の話をじっくり聞くことを心がけ、冷静に対応することで、多くのお客様から「丁寧で安心できる」と評価していただきました。
 </div>
 <div class="example-reason">
-強みと具体的なエピソードが書かれていればOKです。
+強みと具体的なエピソードが書かれていればOKです。数字や成果の書き方はSTEP⑤で学びます。
 </div>
 </div>
-</div>
-
-<div class="tips-box">
-<span class="box-title">書き方のポイント（詳しくはSTEP⑤で）</span>
-<p>この段階では「事実を書き出す」だけでOKです。<br>
-実績・数字・強みの磨き方はSTEP⑤でまとめて解説します。</p>
 </div>
 
 <div class="next-step-box">
-<span class="box-title">🎉 ここまでで「キャリア情報の登録」は完了です！</span>
-<p>完璧でなくて大丈夫です。「埋まっている」状態になれば、企業の検索に引っかかり、スカウトが届く可能性が生まれます。</p>
+<span class="box-title">🎉 3つの核心項目、お疲れさまでした！</span>
+<p>ここまでで「キャリア情報の登録」はひとまず完成です。完璧じゃなくて大丈夫。「埋まっている」状態になっていれば十分です。</p>
 <p>次のSTEP⑤では、今ドラフトで書いた職務経歴・職務要約・自己PRを、採用担当者の目に止まる表現に磨き上げていきます。</p>
-<a href="./step5.html">STEP⑤へ進む（職務経歴書の磨き方）→</a>
+<a href="./step5.html" class="step-link">→ STEP⑤へ進む（キャリア情報をブラッシュアップする）</a>
 </div>
 </section>
 
-<!-- ===== H2④ リクナビNEXT アピールポイント ===== -->
 <section class="section">
 <h2>リクナビNEXT：見つかるための「アピールポイント」設定</h2>
-<p>リクナビNEXTには、候補から選択する「アピールポイント」という独自項目があります。これは企業がデータベース検索で絞り込む際のキーワードとして使われるため、<strong>選択しないと検索に引っかからないリスクがあります。</strong></p>
+<p>リクナビNEXTには、他のサービスにはない独自の「アピールポイント（選択式）」という項目があります。これは企業がデータベース検索で絞り込む際のキーワードとして使われるため、<strong>選択しないと検索に引っかからないリスク</strong>があります。</p>
 
-<p>スキル（営業力・企画力・マネジメント経験など）、資格（簿記・TOEIC・ITパスポートなど）、経験（新規事業立ち上げ・海外勤務など）のカテゴリから選択できます。希望職種に関係するキーワードをできるだけ多く選び、自己PR欄や職務内容と一貫性を持たせることが重要です。</p>
+<p>候補から選択するカテゴリーは主に以下の3種類です。</p>
+<ul>
+<li>スキル（例：営業力・企画力・マネジメント経験など）</li>
+<li>資格（例：簿記・TOEIC・ITパスポートなど）</li>
+<li>経験（例：新規事業立ち上げ・海外勤務など）</li>
+</ul>
+
+<p>希望職種に関係するキーワードをできるだけ多く選択し、自己PR欄や職務内容と一貫性を持たせることが重要です。</p>
 
 <div class="example-box">
 <div class="bad-example">
@@ -677,36 +694,133 @@ IT業界で3年、法人向け営業として従事。新規顧客開拓と既�
 </div>
 </section>
 
-<!-- ===== H2⑤ 会社にバレないための5つのポイント ===== -->
 <section class="section">
-<h2>会社にバレないための5つのポイント</h2>
-<p>在職中の転職活動で最も心配なのが「会社にバレること」です。転職サービスは基本的にプライバシーに配慮した設計になっていますが、設定を間違えると思わぬところで情報が漏れる可能性があります。以下の5つのポイントを必ず確認しておきましょう。</p>
+<h2>会社にバレないために絶対に気をつけるべき5つのポイント</h2>
 
-<div class="steps-box">
-<span class="box-title">会社バレ防止の5つのポイント</span>
-<ol>
-<li><strong>「現在の勤務先には非公開」設定を必ず有効にする</strong><br>
-各転職サービスには、現在の勤務先企業にプロフィールを非公開にする設定があります。登録後すぐに確認して、必ず有効にしてください。</li>
-<li><strong>会社支給のPCや社内ネットワークは使わない</strong><br>
-会社のPCや社内Wi-Fiからのアクセス履歴は、IT部門に把握されるリスクがあります。私用のスマートフォンやPC、自宅のネットワークから利用しましょう。</li>
-<li><strong>会社のメールアドレスは絶対に使わない</strong><br>
-転職サービスの登録にも、エージェントとのやりとりにも、必ず私用のメールアドレスを使用してください。</li>
-<li><strong>勤務時間中に転職活動をしない</strong><br>
-面接や電話相談は、昼休みや業務時間外に設定しましょう。エージェントに「連絡は夕方18時以降にしてほしい」と伝えてもOKです。</li>
-<li><strong>SNSでの転職活動の発信は控える</strong><br>
-「転職活動中です」「面接してきました」といった発信は、同僚や上司の目に触れる可能性があります。転職活動が完了するまでは控えましょう。</li>
-</ol>
+<p>「転職活動をしていることが会社にバレたらどうしよう…」という不安は、誰もが抱くものです。</p>
+<p>特にブラック企業で働いている場合、転職活動がバレると上司から嫌がらせを受けたり、退職を引き止められたりするリスクがあります。</p>
+<p>ここでは、会社にバレずにキャリア情報を登録するための5つのポイントを解説します。</p>
+
+<div class="highlight-box">
+<span class="box-title">会社にバレずに転職活動を進める5つのポイント</span>
+<ul>
+<li>企業ブロック機能を必ず使う</li>
+<li>在籍企業名や社内プロジェクト名を書きすぎない</li>
+<li>会社のメールアドレスや電話番号を使わない</li>
+<li>会社のPCやネットワークから登録しない</li>
+<li>SNSやブログでの発信に注意する</li>
+</ul>
 </div>
+
+<h3>①企業ブロック機能を必ず使う</h3>
+<p>リクナビNEXT、マイナビ転職、dodaには、<strong>特定の企業にだけレジュメ・Web履歴書を見せない「企業ブロック機能」</strong>があります。また、マイナビ転職では「公開範囲設定」で「気になるに登録した企業のみ公開」に設定することで、さらにリスクを絞り込めます。</p>
+
+<p><strong>ブロックすべき企業は以下の通りです。</strong></p>
+<ul>
+<li>現在の勤務先</li>
+<li>親会社・子会社・グループ会社</li>
+<li>取引先企業（特に人事部門との接点がある企業）</li>
+</ul>
+
+<div class="warning-box">
+<span class="box-title">ブロック機能の限界も理解しておく</span>
+<p>企業ブロック機能は完全ではありません。</p>
+<ul>
+<li>社員数が少ない会社だと、匿名でも職歴から「誰か」が推測される可能性がある</li>
+<li>ブロックした企業の関連会社や、新規に登録された企業名には対応できない</li>
+</ul>
+<p>100%バレないとは言えないため、<strong>他のポイントと併用すること</strong>が重要です。</p>
+</div>
+
+<h3>②在籍企業名や社内プロジェクト名を書きすぎない</h3>
+<p>職務経歴に「◯◯株式会社」「◯◯プロジェクト」など、具体的な企業名やプロジェクト名を書くと、特定されやすくなります。</p>
+<ul>
+<li>企業名は「IT業界の中堅企業」「製造業の大手メーカー」のように業界・規模で表現する</li>
+<li>社内プロジェクト名は「ECサイト刷新プロジェクト」のように一般的な表現に置き換える</li>
+<li>社内でしか通じない略称・用語は避ける</li>
+</ul>
+
+<div class="example-box">
+<div class="bad-example">
+<div class="example-title">悪い例</div>
+<div class="example-content">
+◯◯株式会社（社員数50名）で、△△プロジェクト（社内コード：PJ-2023-A）を担当。
+</div>
+<div class="example-reason">
+具体的な社名・プロジェクト名で特定されやすくなります。
+</div>
+</div>
+<div class="good-example">
+<div class="example-title">良い例</div>
+<div class="example-content">
+IT業界の中堅企業（社員数50名規模）で、ECサイト刷新プロジェクトを担当。
+</div>
+</div>
+</div>
+
+<h3>③会社のメールアドレスや電話番号を使わない</h3>
+<p>転職サービスへの登録には、<strong>必ず個人のメールアドレスと携帯電話番号を使う</strong>ようにしましょう。</p>
+<ul>
+<li>企業からの連絡が会社のメールに届いてしまうリスクがある</li>
+<li>会社の電話に転職エージェントから連絡が来てしまうリスクがある</li>
+</ul>
+
+<h3>④会社のPCやネットワークから登録しない</h3>
+<p>会社のPCやネットワークから転職サイトにアクセスすると、<strong>閲覧履歴やログが残り、バレる可能性</strong>があります。</p>
+<ul>
+<li>自宅のPCやスマートフォンから登録する</li>
+<li>会社の休憩時間に会社のネットワークを使わない</li>
+<li>どうしても外出先で登録したい場合は、スマートフォンのモバイル回線を使う</li>
+</ul>
+
+<h3>⑤SNSやブログでの発信に注意する</h3>
+<p>XやFacebook、ブログなどで「転職活動を始めた」「面接に行ってきた」などと書き込むと、同僚や上司に見られてバレる可能性があります。</p>
+<ul>
+<li>転職活動中は、SNSでの転職関連の投稿は控える</li>
+<li>転職サイトやエージェントのアプリは、画面を周囲に見られないよう注意する</li>
+<li>どうしても発信したい場合は、匿名アカウントを使う</li>
+</ul>
 
 <div class="tips-box">
-<span class="box-title">各サービスの「公開範囲」設定も確認しよう</span>
-<p>リクナビNEXTでは「転職・仕事探しの意欲」の公開設定、マイナビ転職では「Web履歴書の公開範囲」など、各サービスごとにプライバシー設定が用意されています。登録完了後は必ず設定画面を確認し、現職の会社に情報が届かないよう調整してください。</p>
+<span class="box-title">バレたときの対処法も考えておく</span>
+<p>万が一、転職活動がバレてしまった場合の対処法も考えておきましょう。</p>
+<ul>
+<li>「キャリアの選択肢を広げるために情報収集をしているだけです」と説明する</li>
+<li>「すぐに辞めるつもりはありません」と伝える</li>
+<li>バレた時点で退職を決意している場合は、冷静に退職の意思を伝える</li>
+</ul>
+<p>ブラック企業の場合、引き止めや嫌がらせがエスカレートする可能性もあるため、<strong>証拠（メール・録音など）を残しておく</strong>ことも重要です。</p>
 </div>
+
 </section>
 
-</div>
-</div>
-</main>
+  <!-- Final CTA -->
+  <section class="final-cta">
+  <div class="cta-content">
+  <div class="cta-title">次のステップへ進もう</div>
+  <p class="cta-description">キャリア情報の登録が完了したら、次は「キャリア情報をさらにブラッシュアップする方法」を学びましょう。</p>
+  <a href="./step5.html" class="step-link">
+  STEP⑤：キャリア情報をブラッシュアップする →
+  </a>
+  </div>
+  </section>
+
+  <a href="./index.html">← 脱出ガイド一覧に戻る</a>
+
+  </div>
+  </div>
+  </main>
+
+  <script>
+    function pubToggleSidebar() {
+      document.getElementById('pubSidebar').classList.toggle('open');
+      document.getElementById('pubSidebarOverlay').classList.toggle('show');
+    }
+    function pubCloseSidebar() {
+      document.getElementById('pubSidebar').classList.remove('open');
+      document.getElementById('pubSidebarOverlay').classList.remove('show');
+    }
+  </script>
 
 </body>
 </html>
