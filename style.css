@@ -585,3 +585,39 @@
       margin: 0 1rem 1rem 1rem;
     }
   }
+
+  /* ===== 広告表記（common.js が全ページの上部に差し込む） ===== */
+  .site-pr-banner {
+    margin-top: -10px;
+    padding: 6px 16px;
+    background: var(--light-bg);
+    border-bottom: 1px solid var(--medium-bg);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* ===== おすすめ箇所の近くの広告表記 ===== */
+  .pr-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0 1rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+  .pr-note-label {
+    flex-shrink: 0;
+    padding: 1px 8px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+
+  /* ===== 運営者情報へのリンク（index.html） ===== */
+  .site-info-link { margin: 2rem 0; text-align: center; font-size: 0.9rem; }
