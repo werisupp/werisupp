@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>無料ツール：転職の軸・自己分析 - うぇりサポ</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./tool.css">
+  <script type="module" src="./tool-ui.js"></script>
+</head>
+<body class="pub-page-body" data-page="index">
+
+  <!-- ▼ 固定ヘッダー -->
+  <div class="pub-header">
+    <div style="display:flex; align-items:center; gap:15px;">
+      <button class="pub-menu-btn" type="button" aria-label="メニュー">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <span class="pub-header-title">うぇりサポ</span>
+    </div>
+    <div class="pub-header-right">
+      <a href="../index.html">記事一覧</a>
+    </div>
+  </div>
+
+  <div class="pub-sidebar-overlay" id="pubSidebarOverlay"></div>
+
+  <div class="pub-sidebar" id="pubSidebar">
+    <ul class="pub-sidebar-menu">
+      <li><a href="../index.html">📋 記事一覧</a></li>
+      <li><a href="./index.html" class="active">🛠 無料ツール</a></li>
+      <li><a href="../step1.html">脱出STEP①</a></li>
+      <li><a href="../step2.html">脱出STEP②</a></li>
+      <li><a href="../step3.html">脱出STEP③</a></li>
+      <li><a href="../step4.html">脱出STEP④</a></li>
+      <li><a href="../step5.html">脱出STEP⑤</a></li>
+      <li><a href="../step6.html">脱出STEP⑥</a></li>
+      <li><a href="../step7.html">脱出STEP⑦</a></li>
+      <li><a href="../step8.html">脱出STEP⑧</a></li>
+      <li><a href="../step9.html">脱出STEP⑨</a></li>
+      <li><a href="../step10.html">脱出STEP⑩</a></li>
+      <li><a href="../step11.html">脱出STEP⑪</a></li>
+      <li><a href="../step12.html">脱出STEP⑫</a></li>
+      <li><a href="../step13.html">脱出STEP⑬</a></li>
+      <li><a href="../step14.html">脱出STEP⑭</a></li>
+      <li><a href="../step15.html">脱出STEP⑮</a></li>
+      <li><a href="../step16.html">脱出STEP⑯</a></li>
+    </ul>
+  </div>
+
+  <header class="step-header">
+    <div class="container">
+      <div class="step-header-content">
+        <h1>転職の軸・自己分析ツール</h1>
+        <div class="step-meta">脱出STEP⑥・⑦を、実際に手を動かして進める無料ツール</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="step-content">
+    <div class="container">
+      <div class="content-wrapper tool-wrapper">
+
+        <nav class="tool-nav no-print" aria-label="ツールの切り替え">
+          <a href="./index.html" aria-current="page">はじめに</a>
+          <a href="./axis.html">① 転職の軸</a>
+          <a href="./self.html">② 自己分析</a>
+        </nav>
+
+        <p id="storage-warning" class="tool-warning no-print" role="alert" hidden>この環境では保存できません（プライベートブラウズなど）。入力は、このページを開いている間だけ残ります。必要なら「JSONで書き出す」で保存してください。</p>
+
+
+        <section class="section">
+          <h2>このツールでできること</h2>
+          <p>転職の「軸」を決める作業と、これまでの経験を整理する自己分析を、画面の上で進められます。AIは使いません。ログインも不要です。</p>
+          <p class="tool-privacy no-print">🔒 入力した内容は、このブラウザの中にだけ保存されます。サーバーには送られません。ログインも不要です。</p>
+          <div id="index-progress"></div>
+
+          <div class="tool-cards">
+            <a class="tool-card" href="./axis.html">
+              <span class="tool-card-title">① 転職の軸を整理する</span>
+              <span class="tool-card-text">5つのカテゴリ・30の軸を、例を見ながら「MUST／WANT／不要」に仕分けます。現職や応募先との比較表も作れます。<br><small>解説：脱出STEP⑥</small></span>
+            </a>
+            <a class="tool-card" href="./self.html">
+              <span class="tool-card-title">② 自己分析（エピソードを書く）</span>
+              <span class="tool-card-text">職種・業界・ポータブル・ヒューマンスキル別の例を見ながら、自分のエピソードをS・T・A・Rの形で書きます。<br><small>解説：脱出STEP⑦</small></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>使い方と注意</h2>
+          <ul>
+            <li>入力内容は自動でこのブラウザに保存されます。別のパソコンやスマホには引き継がれないので、「JSONで書き出す」で保存しておくと安心です。</li>
+            <li>自己分析の例は、AIで作った架空の例です。そのまま使わず、思い出すきっかけにしてください。</li>
+            <li>「プロンプトをコピー」で、入力内容をもとにしたプロンプトを作れます。ツールから送信はしません。使うときは、社名・個人名を伏せてから、お使いのAIに自分で貼ってください。</li>
+            <li>印刷するときは、ブラウザの印刷機能から「PDFとして保存」もできます。</li>
+          </ul>
+          <div class="tool-start no-print">
+            <a class="tool-btn tool-btn-primary" href="./axis.html">転職の軸から始める</a>
+            <a class="tool-btn" href="./self.html">自己分析から始める</a>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
