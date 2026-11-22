@@ -356,7 +356,8 @@ header.step-header h1 {
 .toc-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
 .table-of-contents.is-collapsed > :not(h2):not(h3) { display: none; }
 .toc-list { list-style: none; margin: 4px 0 0; padding: 0; }
-.toc-list a { display: block; padding: 5px 0; color: var(--c-text); text-decoration: none; line-height: 1.55; }
+/* 1行の項目でも押せる高さ 44px を確保し、文字は縦の中央にそろえる */
+.toc-list a { display: flex; align-items: center; min-height: var(--tap); padding: 4px 0; color: var(--c-text); text-decoration: none; line-height: 1.5; }
 .toc-list a:hover { color: var(--c-accent); text-decoration: underline; }
 .toc-link-h2 { font-size: 0.9375rem; font-weight: 700; }
 .toc-sub-list, .toc-sub-sub-list { list-style: none; margin: 0 0 4px; padding-left: 1em; border-left: 2px solid var(--c-line); }
@@ -391,6 +392,7 @@ a.step-next-card::after {
 .step-next-card small { display: block; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.04em; opacity: 0.9; }
 .step-next-title { display: block; margin-top: 2px; font-size: 1.125rem; font-weight: 700; line-height: 1.5; }
 .step-next-card.is-pending { padding-right: 18px; border: 1px dashed var(--c-line); background: var(--c-bg); color: var(--c-sub); }
+.step-next-card.is-pending small { opacity: 1; } /* 補助の文字色を薄めると白地で 4.5:1 を割るため */
 .step-next-sub { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 8px; font-size: 0.9375rem; }
 .step-next-sub a { display: inline-flex; align-items: center; min-height: var(--tap); }
 

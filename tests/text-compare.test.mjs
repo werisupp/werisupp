@@ -52,3 +52,24 @@ test('本文のある main の1文字の違いは雛形扱いにならない', (
   const r = compareHtml('<main><p>本文です</p></main>', '<main><p>本文です。</p></main>');
   assert.equal(r.ok, false);
 });
+
+test('after 側に雛形の文を足しても、本文の削除を見逃さない', () => {
+  const before = '<header class="step-header"><h1>脱出STEP⑩</h1></header><main><p>提出書類の本文です</p></main>';
+  const after = '<header class="step-header"><h1>脱出STEP⑩</h1></header><main><p>（ここに本文を追加してください）</p></main>';
+  assert.equal(compareHtml(before, after).ok, false);
+});
+
+test('雛形の文を含むかどうかは before 側の main だけで決める', () => {
+  // after 側に雛形入りの main を足しても、外さずに比べる（足した文は差になる）
+  const before = '<main><p>本文</p></main>';
+  const after = '<main><p>本文</p></main><main><p>（ここに本文を追加してください）</p></main>';
+  assert.equal(compareHtml(before, after).ok, false);
+  // before の main が空でも、after に足した雛形の文は差になる
+  assert.equal(compareHtml('<main></main>', '<main><p>（ここに本文を追加してください）</p></main>').ok, false);
+});
+
+test('before 側が雛形なら、after 側の main は中身を問わず外す', () => {
+  const before = '<main><p>（ここに本文を追加してください）</p></main>';
+  assert.equal(compareHtml(before, '<main><p>準備中です</p></main>').ok, true);
+  assert.equal(compareHtml(before, '<main><p>（ここに本文を追加してください）</p></main>').ok, true);
+});
