@@ -1,0 +1,112 @@
+/* 無料ツール用の追加スタイル。基本の見た目は ../style.css を使い、足りない分だけここに書く。 */
+
+.tool-wrapper { max-width: 800px; }
+.tool-offscreen { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* ページ内ナビ */
+.tool-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.tool-nav a { padding: 0.5rem 1rem; border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color); text-decoration: none; font-size: 0.95rem; }
+.tool-nav a[aria-current="page"] { background: var(--primary-color); color: var(--white); font-weight: bold; }
+
+.tool-warning { background: #fff3cd; border-left: 4px solid var(--warning-color); padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.tool-warning[hidden] { display: none; }
+.tool-privacy { background: rgba(0, 91, 172, 0.05); border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.95rem !important; }
+.tool-note { font-size: 0.95rem !important; color: var(--text-secondary) !important; margin-bottom: 1rem !important; }
+.tool-error { color: var(--danger-color); font-weight: bold; }
+.tool-status { min-height: 1.6em; margin-top: 0.75rem; font-size: 0.95rem; color: var(--secondary-dark); }
+
+.tool-wrapper .tool-h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; padding-left: 0.75rem; border-left: solid 3px var(--primary-color); }
+.tool-label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin: 0.75rem 0 0.25rem; }
+
+/* 入力部品 */
+.tool-wrapper textarea,
+.tool-wrapper input[type="text"],
+.tool-wrapper select { width: 100%; font: inherit; font-size: 1rem; padding: 0.55rem 0.7rem; border: 1px solid #ced4da; border-radius: 6px; background: var(--white); color: var(--text-primary); }
+.tool-wrapper textarea { resize: vertical; line-height: 1.6; }
+.tool-wrapper textarea:focus,
+.tool-wrapper input:focus,
+.tool-wrapper select:focus { outline: 2px solid var(--primary-color); outline-offset: 1px; }
+
+.tool-btn { display: inline-block; font: inherit; font-size: 0.95rem; min-height: 44px; padding: 0.55rem 1.1rem; border: 1px solid var(--primary-color); border-radius: 8px; background: var(--white); color: var(--primary-color); cursor: pointer; text-decoration: none; line-height: 1.4; }
+.tool-btn:hover { background: rgba(0, 91, 172, 0.08); }
+.tool-btn-primary { background: var(--primary-color); color: var(--white); }
+.tool-btn-primary:hover { background: var(--primary-dark); }
+.tool-btn-danger { border-color: var(--danger-color); color: var(--danger-color); }
+.tool-btn-danger:hover { background: rgba(220, 53, 69, 0.08); }
+.tool-mini { font: inherit; font-size: 0.85rem; min-width: 44px; min-height: 36px; padding: 0.2rem 0.6rem; border: 1px solid #ced4da; border-radius: 6px; background: var(--light-bg); color: var(--text-primary); cursor: pointer; }
+.tool-mini:hover { background: var(--medium-bg); }
+.tool-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+.tool-start { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.tool-prompt .tool-prompt-text { margin-bottom: 0.75rem; font-size: 0.9rem; background: var(--light-bg); }
+
+/* はじめにのカード */
+.tool-cards { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.tool-card { display: block; padding: 1.25rem; border: 2px solid var(--primary-color); border-radius: 12px; text-decoration: none; color: var(--text-primary); background: linear-gradient(135deg, rgba(0, 91, 172, 0.05), rgba(32, 201, 151, 0.05)); }
+.tool-card:hover { box-shadow: 0 4px 12px var(--shadow-hover); }
+.tool-card-title { display: block; font-size: 1.15rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.4rem; }
+.tool-card-text { display: block; font-size: 0.95rem; line-height: 1.7; }
+
+/* 進捗 */
+.tool-progress-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; font-size: 1rem !important; font-weight: 600; margin-bottom: 1rem !important; }
+.tool-progress-line progress { flex: 1 1 160px; height: 12px; accent-color: var(--primary-color); }
+
+/* 転職の軸 */
+.axis-card, .story-card { border: 1px solid #dee2e6; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; background: var(--white); }
+.tool-wrapper .axis-name { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.5rem; padding-left: 0; }
+.tool-wrapper .axis-name::before { content: none; }
+.axis-examples { list-style: none; margin: 0 0 0.5rem !important; padding: 0; }
+.axis-examples li { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.9rem !important; line-height: 1.5 !important; color: var(--text-secondary) !important; margin: 0 0 0.25rem !important; }
+.axis-priority { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+.axis-priority .tool-label { margin: 0 0.25rem 0 0; }
+.tool-chip { font: inherit; font-size: 0.95rem; min-width: 72px; min-height: 44px; padding: 0.4rem 1rem; border: 2px solid #ced4da; border-radius: 22px; background: var(--white); color: var(--text-primary); cursor: pointer; }
+.tool-chip[aria-pressed="true"] { color: var(--white); font-weight: bold; }
+.tool-chip-must[aria-pressed="true"] { background: var(--danger-color); border-color: var(--danger-color); }
+.tool-chip-want[aria-pressed="true"] { background: var(--primary-color); border-color: var(--primary-color); }
+.tool-chip-none[aria-pressed="true"] { background: var(--text-secondary); border-color: var(--text-secondary); }
+
+/* 比較表 */
+.table-scroll { overflow-x: auto; margin-bottom: 1rem; border: 1px solid #dee2e6; border-radius: 8px; }
+.compare-table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 0.95rem; }
+.compare-table th, .compare-table td { border-bottom: 1px solid #dee2e6; padding: 0.5rem; text-align: left; vertical-align: middle; }
+.compare-table thead th { background: var(--light-bg); white-space: nowrap; }
+.compare-table tbody th { font-weight: 600; min-width: 9em; }
+.compare-table select { min-width: 4.5em; padding: 0.4rem; min-height: 40px; }
+.compare-target { min-width: 9em; }
+.compare-target input { margin-bottom: 0.3rem; }
+.compare-legend { font-size: 0.9rem !important; color: var(--text-secondary) !important; margin-bottom: 0.75rem !important; }
+
+/* 自己分析 */
+.tool-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.tool-tab { font: inherit; font-size: 0.95rem; min-height: 44px; padding: 0.4rem 1.1rem; border: 1px solid var(--primary-color); border-radius: 22px; background: var(--white); color: var(--primary-color); cursor: pointer; }
+.tool-tab[aria-selected="true"] { background: var(--primary-color); color: var(--white); font-weight: bold; }
+.tool-select { display: block; margin-bottom: 1rem; max-width: 420px; }
+.star-list { display: grid; gap: 0.6rem; margin-bottom: 1rem; }
+.star-card { border: 1px solid #dee2e6; border-radius: 10px; background: var(--white); }
+.star-card summary { cursor: pointer; padding: 0.75rem 1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; list-style-position: inside; }
+.star-skill { font-weight: 700; color: var(--primary-color); }
+.star-title { font-size: 0.95rem; flex: 1 1 14em; }
+.tool-badge { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 10px; background: var(--medium-bg); color: var(--text-secondary); white-space: nowrap; }
+.star-body { margin: 0; padding: 0 1rem 0.5rem; }
+.star-body dt { font-weight: 700; font-size: 0.9rem; margin-top: 0.6rem; color: var(--text-secondary); }
+.star-body dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.star-card > .tool-btn { margin: 0.5rem 1rem 1rem; }
+.story-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+
+.print-only { display: none; }
+
+@media only screen and (max-width: 1000px) {
+  .tool-wrapper .section h2 { font-size: 1.15rem; }
+  .tool-wrapper .section p { font-size: 0.95rem; }
+  .tool-wrapper .section ul li { font-size: 0.95rem; }
+  .step-content { padding: 2rem 0; }
+}
+
+/* 印刷: 操作部品を隠し、まとめ（#print-area）だけを出す */
+@media print {
+  .pub-header, .pub-sidebar, .pub-sidebar-overlay, .step-header, .tool-nav, .tool-warning, .no-print, .tool-wrapper > .section { display: none !important; }
+  .pub-page-body { padding-top: 0; }
+  .step-content { padding: 0; }
+  .print-only { display: block !important; }
+  .print-only h1 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .print-only pre { white-space: pre-wrap; font-family: inherit; font-size: 11pt; line-height: 1.7; }
+}
