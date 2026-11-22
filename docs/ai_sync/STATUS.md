@@ -11,6 +11,8 @@
 | 2026-11-23 | Claude（子） | サイトの土台（PR表記・運営者情報ページ・計測の口）タスク0-3 | claude/site-foundation | 完了 | #8 |
 | 2026-11-23 | Claude（子） | 無料ツール「転職の軸・自己分析」本体（tool/） | werisupp/free-tool | 完了 | #9 |
 | 2026-11-23 | Claude（子） | 記事から無料ツールへの入口（サイドバー・案内ボックス・ログイン削除）タスク2-3 | claude/tool-entry | 完了 | #10 |
-| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | 進行中 | 設計書のホスト確認待ち |
+| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | 進行中 | 計画: docs/superpowers/plans/2026-11-23-ui-refresh.md |
+| 2026-11-23 | Claude（子） | 一新 Task1 本文比較スクリプト | claude/ui-text-compare | 進行中 | |
+| 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 進行中 | |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
