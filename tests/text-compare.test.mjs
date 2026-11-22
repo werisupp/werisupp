@@ -41,3 +41,14 @@ test('1文字の違いを見つける', () => {
   assert.equal(r.ok, false);
   assert.equal(r.index, 6);
 });
+
+test('雛形の main は準備中の案内（data-ui）に置き換えても一致する', () => {
+  const before = '<header class="step-header"><h1>脱出STEP⑫<br/>面接</h1></header><main><p>（ここに本文を追加してください）</p></main>';
+  const after = '<header class="step-header"><h1><span class="step-kicker">脱出STEP⑫</span>面接</h1></header><main><section class="step-pending" data-ui><h2>このSTEPは準備中です</h2></section></main>';
+  assert.equal(compareHtml(before, after).ok, true);
+});
+
+test('本文のある main の1文字の違いは雛形扱いにならない', () => {
+  const r = compareHtml('<main><p>本文です</p></main>', '<main><p>本文です。</p></main>');
+  assert.equal(r.ok, false);
+});
