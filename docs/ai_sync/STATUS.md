@@ -15,6 +15,6 @@
 | 2026-11-23 | Claude（子） | STEP⑪「面接準備（共通）」の記事を執筆（タスク1-2） | werisupp/step11 | 完了 | #12 |
 | 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | 進行中 | 計画: docs/superpowers/plans/2026-11-23-ui-refresh.md |
 | 2026-11-23 | Claude（子） | 一新 Task1 本文比較スクリプト | claude/ui-text-compare | 完了 | #13 |
-| 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 進行中 | |
+| 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 完了 | #14（ホストの確認①待ち） |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
