@@ -17,9 +17,9 @@
 | 2026-11-23 | Claude（子） | 一新 Task1 本文比較スクリプト | claude/ui-text-compare | 完了 | #13 |
 | 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 完了 | #14 |
 | 2026-11-23 | Claude（子） | 一新 確認①の直し（紺の見出し帯・トップのフェーズの塊・PR表記の固定） | claude/ui-foundation | 進行中 | |
-| 2026-11-23 | Claude（子） | 一新 Task4 step1・2・4・5 | claude/ui-pages-a | 進行中 | |
-| 2026-11-23 | Claude（子） | 一新 Task5 step6・7 | claude/ui-pages-b | 進行中 | |
-| 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 進行中 | |
-| 2026-11-23 | Claude（子） | 一新 Task7 無料ツール | claude/ui-tool | 進行中 | |
+| 2026-11-23 | Claude（子） | 一新 Task4 step1・2・4・5 | claude/ui-pages-a | 完了 | #16 |
+| 2026-11-23 | Claude（子） | 一新 Task5 step6・7 | claude/ui-pages-b | 完了 | #17 |
+| 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 完了 | #15 |
+| 2026-11-23 | Claude（子） | 一新 Task7 無料ツール | claude/ui-tool | 完了 | #18 |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
