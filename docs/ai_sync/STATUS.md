@@ -8,6 +8,6 @@
 | 2026-10-24 | Claude | Codexとの協働ルール（AGENTS.md・このファイル）を導入 | claude/project-thread-gjbbs4 | 完了 | #5 |
 | 2026-11-23 | Claude（窓口） | 公開ルールと書き方のルールを AGENTS.md に追加 | claude/agents-publish-rules | レビュー待ち | |
 | 2026-11-23 | Claude（窓口） | 未公開のSTEP4更新・STEP9執筆をPR化 | step9_260703 | レビュー待ち | |
-| 2026-11-23 | Claude（子） | 無料ツール「転職の軸・自己分析」本体（tool/） | werisupp/free-tool | 進行中 | |
+| 2026-11-23 | Claude（子） | 無料ツール「転職の軸・自己分析」本体（tool/） | werisupp/free-tool | レビュー待ち | #9（ホスト確認でマージ） |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
