@@ -621,3 +621,17 @@
 
   /* ===== 運営者情報へのリンク（index.html） ===== */
   .site-info-link { margin: 2rem 0; text-align: center; font-size: 0.9rem; }
+
+
+  /* ===== 無料ツールへの案内（記事・index.html） ===== */
+  .tool-cta { background: rgba(40, 167, 69, 0.06); border: 2px solid var(--secondary-color); border-radius: 15px; padding: 1.5rem 2rem; margin: 2rem 0; }
+  .tool-cta .box-title { display: block; color: var(--secondary-dark); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; }
+  .tool-cta p { line-height: 1.6; margin-bottom: 0.8rem; }
+  .tool-cta p:last-child { margin-bottom: 0; }
+  .tool-cta .tool-cta-link { display: inline-block; min-height: 44px; padding: 0.6rem 1.2rem; background: var(--secondary-color); color: var(--white); border-radius: 8px; font-weight: 600; text-decoration: none; line-height: 1.4; }
+  .tool-cta .tool-cta-note { font-size: 0.9rem; color: var(--text-secondary); }
+  @media (max-width: 768px) {
+    .tool-cta { padding: 1.2rem 1rem; }
+    .tool-cta .box-title { font-size: 1rem; }
+    .tool-cta .tool-cta-link { display: block; text-align: center; }
+  }

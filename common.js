@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isProductionHost(location.hostname)) return;
   };
 
+  // data-track 属性を持つ要素のクリック（data-track-◯◯ は送る値。数字は数として送る）
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-track]');
+    if (!el) return;
+    var data = {};
+    Object.keys(el.dataset).forEach(function (key) {
+      var m = key.match(/^track(.+)$/);
+      if (!m) return;
+      var v = el.dataset[key];
+      data[m[1].charAt(0).toLowerCase() + m[1].slice(1)] = /^\d+$/.test(v) ? Number(v) : v;
+    });
+    window.werisuppTrack(el.dataset.track, data);
+  });
+
   // 記事内の外部リンクのクリック
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('main a[href]');
