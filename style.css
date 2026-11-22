@@ -807,6 +807,17 @@ a.step-next-card::after {
 }
 
 /* ===== Task 5 で追加 ===== */
+/* 書き方の見本（ボックスの中の白い枠。旧 style="background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;"）。1行ずつ並べた見本が詰まって読めるよう、段落の間隔は狭くする */
+.writing-sample { margin: 8px 0 16px; padding: 14px 16px; border-radius: 8px; background: var(--c-bg); }
+.writing-sample p { margin-bottom: 0.4em; }
+.writing-sample p:last-child { margin-bottom: 0; }
+/* 見本の中の小見出し行（【実績や工夫したポイント】・■◯◯。旧 style="margin-top: 1.5rem;"） */
+.writing-sample .sample-heading { margin-top: 1.25em; }
+.writing-sample > .sample-heading:first-child { margin-top: 0; }
+/* 見本の下の「→ なぜダメか／なぜ良いのか／このPRの特徴」の行（旧 style="margin-top: 1rem;"） */
+.section .reason-heading { margin-top: 16px; margin-bottom: 0.4em; }
+/* 見出しと説明が一組になった長い項目のリスト（旧 li の style="margin-top: 0.75rem;"） */
+.detail-list > li { margin-bottom: 0.75rem; }
 
 /* ===== Task 6 で追加 ===== */
 /* 実践の読み解き例の上下の余白（旧 style="margin: 2rem 0;"） */
