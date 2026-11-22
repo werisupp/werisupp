@@ -799,6 +799,12 @@ a.step-next-card::after {
 /* ===== 7. Task 4〜8 で足す部品（各 Task は自分の区画にだけ書く） ===== */
 
 /* ===== Task 4 で追加 ===== */
+/* 本文中の小見出し（step4 の <style> から移した。今は本文では使っていない） */
+.section-sub-label { position: relative; margin: 2rem 0 1rem; padding-left: 3rem; color: var(--c-text); font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; }
+.section-sub-label::before { content: '▸'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--c-accent); font-size: 2.4rem; }
+@media (max-width: 768px) {
+  .section-sub-label { padding-left: 2rem; font-size: 0.95rem; }
+}
 
 /* ===== Task 5 で追加 ===== */
 

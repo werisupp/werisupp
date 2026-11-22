@@ -8,44 +8,8 @@
   <script src="./common.js" defer></script>
 </head>
 <body class="pub-page-body">
+<div class="site-pr-banner" data-ui>当サイトはアフィリエイト広告（PR）を利用しています</div>
 
-  <!-- ▼ 固定ヘッダー -->
-  <div class="pub-header">
-    <div style="display:flex; align-items:center; gap:15px;">
-      <button class="pub-menu-btn" onclick="pubToggleSidebar()">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-      </button>
-      <span class="pub-header-title">うぇりサポ</span>
-    </div>
-  </div>
-
-  <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
-
-  <div class="pub-sidebar" id="pubSidebar">
-    <ul class="pub-sidebar-menu">
-      <li><a href="./index.html">📋 記事一覧</a></li>
-      <li><a href="./tool/index.html">🛠 無料ツール</a></li>
-      <li><a href="./step1.html" class="active">脱出STEP①</a></li>
-      <li><a href="./step2.html">脱出STEP②</a></li>
-      <li><a href="./step3.html">脱出STEP③</a></li>
-      <li><a href="./step4.html">脱出STEP④</a></li>
-      <li><a href="./step5.html">脱出STEP⑤</a></li>
-      <li><a href="./step6.html">脱出STEP⑥</a></li>
-      <li><a href="./step7.html">脱出STEP⑦</a></li>
-      <li><a href="./step8.html">脱出STEP⑧</a></li>
-      <li><a href="./step9.html">脱出STEP⑨</a></li>
-      <li><a href="./step10.html">脱出STEP⑩</a></li>
-      <li><a href="./step11.html">脱出STEP⑪</a></li>
-      <li><a href="./step12.html">脱出STEP⑫</a></li>
-      <li><a href="./step13.html">脱出STEP⑬</a></li>
-      <li><a href="./step14.html">脱出STEP⑭</a></li>
-      <li><a href="./step15.html">脱出STEP⑮</a></li>
-      <li><a href="./step16.html">脱出STEP⑯</a></li>
-      <li><a href="./about.html">ℹ️ 運営者情報</a></li>
-    </ul>
-  </div>
 
   <!-- ▼ この記事のコンテンツ -->
 <!-- step1.html -->
@@ -53,7 +17,7 @@
 <header class="step-header">
 <div class="container">
 <div class="step-header-content">
-<h1>脱出STEP①<br>転職するためのマインドセット</h1>
+<h1><span class="step-kicker">脱出STEP①</span>転職するためのマインドセット</h1>
 <div class="step-meta">ツライ職場から脱出するための第一歩 - 考え方を変えて転職を成功させる方法</div>
 </div>
 </div>
@@ -63,8 +27,6 @@
 <main class="step-content">
 <div class="container">
 <div class="content-wrapper">
-<a href="./index.html" class="back-button">← 脱出ガイド一覧に戻る</a>
-
 <!-- Introduction -->
 <section class="section">
 <div class="reader-feelings-box">
@@ -99,7 +61,7 @@
 <p><strong>この記事の概要はコチラ</strong></p>
 
 <iframe
-  style="width: 100%; aspect-ratio: 16/9; display: block;"
+  class="video-embed"
   src="https://www.youtube.com/embed/_jCtXVJz1jc?si=qURkGHpg9HOqHDht"
   title="YouTube video player"
   frameborder="0"
@@ -503,25 +465,12 @@
 <h2 class="cta-title">次のステップへ進みましょう</h2>
 <p class="cta-description">「転職活動する時間がない」を打破！</p>
 <p class="cta-description">次の記事では、転職活動の優先度を上げるための考えと方法とをご紹介します。</p>
-<a href="./step2.html" class="step-link">
-<span>📋 転職活動の準備を始める</span>
-</a>
 </div>
 </section>
 </div>
 </div>
 </main>
 
-  <script>
-    function pubToggleSidebar() {
-      document.getElementById('pubSidebar').classList.toggle('open');
-      document.getElementById('pubSidebarOverlay').classList.toggle('show');
-    }
-    function pubCloseSidebar() {
-      document.getElementById('pubSidebar').classList.remove('open');
-      document.getElementById('pubSidebarOverlay').classList.remove('show');
-    }
-  </script>
 
 </body>
 </html>
