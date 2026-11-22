@@ -13,10 +13,10 @@
 | 2026-11-23 | Claude（子） | 記事から無料ツールへの入口（サイドバー・案内ボックス・ログイン削除）タスク2-3 | claude/tool-entry | 完了 | #10 |
 | 2026-11-23 | Claude（子） | STEP⑩「提出書類を作成する」の記事を執筆（タスク1-2。STEP⑪〜⑯の題も直す） | werisupp/step10 | 完了 | #11 |
 | 2026-11-23 | Claude（子） | STEP⑪「面接準備（共通）」の記事を執筆（タスク1-2） | werisupp/step11 | 完了 | #12 |
-| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | 進行中 | 計画: docs/superpowers/plans/2026-11-23-ui-refresh.md |
+| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | レビュー待ち | #22（ホストの確認②待ち） |
 | 2026-11-23 | Claude（子） | 一新 Task1 本文比較スクリプト | claude/ui-text-compare | 完了 | #13 |
 | 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 完了 | #14 |
-| 2026-11-23 | Claude（子） | 一新 確認①の直し（紺の見出し帯・トップのフェーズの塊・PR表記の固定） | claude/ui-foundation | 完了 | #19 |
+| 2026-11-23 | Claude（子） | 一新 確認①の直し（紺の見出し帯・トップのフェーズの塊・PR表記の固定）・公開前の直し | claude/ui-foundation | 完了 | #19・#21 |
 | 2026-11-23 | Claude（子） | 一新 Task4 step1・2・4・5 | claude/ui-pages-a | 完了 | #16 |
 | 2026-11-23 | Claude（子） | 一新 Task5 step6・7 | claude/ui-pages-b | 完了 | #17 |
 | 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 完了 | #15 |
