@@ -21,6 +21,6 @@
 | 2026-11-23 | Claude（子） | 一新 Task5 step6・7 | claude/ui-pages-b | 完了 | #17 |
 | 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 完了 | #15 |
 | 2026-11-23 | Claude（子） | 一新 Task7 無料ツール | claude/ui-tool | 完了 | #18 |
-| 2026-11-23 | Claude（子） | 一新 Task8 step10〜16と準備中の表示 | claude/ui-pending | 進行中 | |
+| 2026-11-23 | Claude（子） | 一新 Task8 step10〜16と準備中の表示 | claude/ui-pending | 完了 | #20 |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
