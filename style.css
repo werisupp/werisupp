@@ -803,6 +803,8 @@ a.step-next-card::after {
 /* ===== Task 5 で追加 ===== */
 
 /* ===== Task 6 で追加 ===== */
+/* 実践の読み解き例の上下の余白（旧 style="margin: 2rem 0;"） */
+.worked-example { margin: 2rem 0; }
 
 /* ===== Task 7 で追加 ===== */
 

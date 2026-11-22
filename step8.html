@@ -8,51 +8,15 @@
   <script src="./common.js" defer></script>
 </head>
 <body class="pub-page-body">
+  <div class="site-pr-banner" data-ui>当サイトはアフィリエイト広告（PR）を利用しています</div>
 
-  <!-- ▼ 固定ヘッダー -->
-  <div class="pub-header">
-    <div style="display:flex; align-items:center; gap:15px;">
-      <button class="pub-menu-btn" onclick="pubToggleSidebar()">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-      </button>
-      <span class="pub-header-title">うぇりサポ</span>
-    </div>
-  </div>
-
-  <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
-
-  <div class="pub-sidebar" id="pubSidebar">
-    <ul class="pub-sidebar-menu">
-      <li><a href="./index.html">📋 記事一覧</a></li>
-      <li><a href="./tool/index.html">🛠 無料ツール</a></li>
-      <li><a href="./step1.html">脱出STEP①</a></li>
-      <li><a href="./step2.html">脱出STEP②</a></li>
-      <li><a href="./step3.html">脱出STEP③</a></li>
-      <li><a href="./step4.html">脱出STEP④</a></li>
-      <li><a href="./step5.html">脱出STEP⑤</a></li>
-      <li><a href="./step6.html">脱出STEP⑥</a></li>
-      <li><a href="./step7.html">脱出STEP⑦</a></li>
-      <li><a href="./step8.html" class="active">脱出STEP⑧</a></li>
-      <li><a href="./step9.html">脱出STEP⑨</a></li>
-      <li><a href="./step10.html">脱出STEP⑩</a></li>
-      <li><a href="./step11.html">脱出STEP⑪</a></li>
-      <li><a href="./step12.html">脱出STEP⑫</a></li>
-      <li><a href="./step13.html">脱出STEP⑬</a></li>
-      <li><a href="./step14.html">脱出STEP⑭</a></li>
-      <li><a href="./step15.html">脱出STEP⑮</a></li>
-      <li><a href="./step16.html">脱出STEP⑯</a></li>
-      <li><a href="./about.html">ℹ️ 運営者情報</a></li>
-    </ul>
-  </div>
 
   <!-- ▼ この記事のコンテンツ -->
 <!-- step Header -->
 <header class="step-header">
     <div class="container">
         <div class="step-header-content">
-            <h1>STEP⑧<br>求人の探し方・スカウト活用・求人票の読み方</h1>
+            <h1><span class="step-kicker">STEP⑧</span>求人の探し方・スカウト活用・求人票の読み方</h1>
             <div class="step-meta">ブラック企業を見抜く！初めての転職でも失敗しない求人選びの全知識</div>
         </div>
     </div>
@@ -62,8 +26,6 @@
 <main class="step-content">
     <div class="container">
         <div class="content-wrapper">
-            <a href="./index.html" class="back-button">← 記事一覧に戻る</a>
-
             <!-- Introduction -->
             <section class="section">
                 <div class="reader-feelings-box">
@@ -120,7 +82,7 @@
                 </div>
 
                 <div class="example-box">
-                    <div class="bad-example">
+                    <div class="bad-example worked-example">
                         <div class="example-title">ありがちな失敗例</div>
                         <div class="example-content">
                             希望条件を全部チェックして検索 → ヒット件数：3件<br>
@@ -128,7 +90,7 @@
                         </div>
                         <div class="example-reason">条件を欲張りすぎると、本来マッチする求人も見逃してしまいます。</div>
                     </div>
-                    <div class="good-example">
+                    <div class="good-example worked-example">
                         <div class="example-title">正しい検索の仕方</div>
                         <div class="example-content">
                             まず「年収400万円以上」「完全週休2日制」「東京都」の3条件で検索 → ヒット件数：500件以上<br>
@@ -360,7 +322,7 @@
                 <p>固定残業代とは、あらかじめ一定時間分の残業代を給与に組み込んで支払う制度です。</p>
 
                 <div class="example-box">
-                    <div class="bad-example">
+                    <div class="bad-example worked-example">
                         <div class="example-title">要注意な求人票の表記</div>
                         <div class="example-content">
                             月給25万円（固定残業代を含む）<br>
@@ -368,7 +330,7 @@
                         </div>
                         <div class="example-reason">固定残業代の金額、対象時間、超過分の支払いについて明示がない求人は、法令上も問題があり、ブラック企業の可能性が高いです。</div>
                     </div>
-                    <div class="good-example">
+                    <div class="good-example worked-example">
                         <div class="example-title">適切な求人票の表記</div>
                         <div class="example-content">
                             月給25万円（基本給21万円＋固定残業代4万円／30時間相当分を含む）<br>
@@ -583,7 +545,7 @@
 
                 <h3>例①：一見よさそうに見える「隠れブラック」求人</h3>
 
-                <div class="bad-example" style="margin: 2rem 0;">
+                <div class="bad-example worked-example">
                     <div class="example-title">こんな求人票を見つけたら</div>
                     <div class="example-content">
                         <strong>【営業職】未経験大歓迎！月給28万円〜◆やりがい抜群！若手が活躍中！</strong><br><br>
@@ -609,7 +571,7 @@
 
                 <h3>例②：安心して応募できる「ホワイト寄り」求人</h3>
 
-                <div class="good-example" style="margin: 2rem 0;">
+                <div class="good-example worked-example">
                     <div class="example-title">こんな求人票なら前向きに検討</div>
                     <div class="example-content">
                         <strong>【法人営業】既存顧客メイン◆残業月15時間程度／完全週休2日制（土日祝）</strong><br><br>
@@ -691,26 +653,12 @@
                     <h2 class="cta-title">次は、応募のアクションへ</h2>
                     <p class="cta-description">求人を見つけたら、次は応募です。書類選考を通過するためのポイントを確認しましょう。</p>
                     <p class="cta-description">焦らず、一歩ずつ。あなたのペースで大丈夫です。</p>
-                    <a href="./step9.html" class="step-link">
-                        <span>STEP⑨ へ進む</span>
-                        <span>→</span>
-                    </a>
                 </div>
             </section>
         </div>
     </div>
 </main>
 
-  <script>
-    function pubToggleSidebar() {
-      document.getElementById('pubSidebar').classList.toggle('open');
-      document.getElementById('pubSidebarOverlay').classList.toggle('show');
-    }
-    function pubCloseSidebar() {
-      document.getElementById('pubSidebar').classList.remove('open');
-      document.getElementById('pubSidebarOverlay').classList.remove('show');
-    }
-  </script>
 
 </body>
 </html>
