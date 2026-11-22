@@ -270,29 +270,6 @@ a.site-drawer-link:hover, a.site-drawer-step:hover { background: var(--c-surface
   body.has-drawer-pinned .site-drawer-overlay { display: none; }
 }
 
-/* 作り替え前のページ用（JavaScript が動けば common.js が外す。Task 8 の後に消す） */
-.pub-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--header-h);
-  padding: 0 var(--gutter);
-  border-bottom: 1px solid var(--c-line);
-  background: var(--c-bg);
-}
-.pub-header-title { color: var(--c-text); font-size: 1.0625rem; font-weight: 700; }
-.pub-header-right a { font-size: 0.9375rem; }
-.pub-menu-btn { display: inline-flex; align-items: center; min-width: var(--tap); min-height: var(--tap); border: 0; background: none; color: var(--c-text); cursor: pointer; }
-.pub-menu-btn svg { width: 24px; height: 24px; }
-.pub-sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 250; width: 260px; overflow-y: auto; background: var(--c-bg); border-right: 1px solid var(--c-line); transform: translateX(-100%); visibility: hidden; }
-.pub-sidebar.open { transform: none; visibility: visible; }
-.pub-sidebar-menu { list-style: none; padding: 8px; }
-.pub-sidebar-menu a { display: flex; align-items: center; min-height: var(--tap); padding: 0 10px; color: var(--c-text); text-decoration: none; }
-.pub-sidebar-menu a.active { background: var(--c-accent-weak); color: var(--c-accent); font-weight: 700; }
-.pub-sidebar-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(29, 41, 57, 0.45); }
-.pub-sidebar-overlay.show { display: block; }
-
-
 /* ===== 4. 記事の見出し帯と導線 ===== */
 /* 見出し帯: 横幅いっぱいの紺の帯。高さは抑え、375px でも1画面目に本文の書き出しが見えるようにする */
 header.step-header { padding: 16px 0 18px; background: var(--c-band); color: #fff; }
@@ -863,3 +840,11 @@ a.step-next-card::after {
 /* ===== Task 7 で追加 ===== */
 
 /* ===== Task 8 で追加 ===== */
+
+/* 準備中のSTEP（本文がまだないページ） */
+.step-pending { padding: 8px 0; }
+.step-pending .container { max-width: var(--content-w); padding: 32px var(--gutter); background: var(--c-accent-weak); border-radius: 8px; text-align: center; }
+.step-pending-title { margin: 0 0 12px; font-size: 1.25rem; line-height: 1.5; }
+.step-pending-text { margin: 0 0 24px; }
+.step-pending-btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 0 28px; border-radius: 8px; background: var(--c-accent); color: #fff; font-weight: 700; text-decoration: none; }
+.step-pending-btn:hover { background: var(--c-accent-dark); color: #fff; }

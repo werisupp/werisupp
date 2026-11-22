@@ -11,6 +11,8 @@ const RAW_TEXT = new Set(['script', 'style']);
 const DROP_TAGS = new Set(['script', 'style', 'template']);
 // 「一覧に戻る」を含む <a> を消す
 const BACK_LINK_TEXT = '一覧に戻る';
+// 本文がまだない雛形ページの印。main にこの文があれば main の中身は本文として比べない（準備中の案内に置き換えるため）
+const PLACEHOLDER_TEXT = '（ここに本文を追加してください）';
 // final-cta の中で消すリンクの href（一覧・STEPへの導線）
 const CTA_STEP_HREF = /^(\.\/)?(index|step\d+)\.html$/;
 
@@ -151,6 +153,7 @@ export function extractArticleText(html) {
   if (scopes.length === 0) scopes = [findFirst(root, 'body') || root];
   const out = [];
   for (const s of scopes) {
+    if (s.tag === 'main' && plainText(s).includes(PLACEHOLDER_TEXT)) continue;
     for (const c of s.children) collect(c, { finalCta: false }, out);
     out.push(' ');
   }

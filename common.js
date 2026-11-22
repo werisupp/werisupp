@@ -208,11 +208,6 @@ if (typeof document !== 'undefined') {
     }
 
     function setupChrome(info, progress) {
-      // 作り替え前のページに残っている古いヘッダー・サイドバーは外す（二重に出さない）
-      document.querySelectorAll('.pub-header, .pub-sidebar, .pub-sidebar-overlay').forEach(function (old) {
-        old.parentNode.removeChild(old);
-      });
-
       var menuBtn = el('button', {
         type: 'button', class: 'site-menu-btn', 'aria-expanded': 'false', 'aria-controls': 'site-drawer'
       }, [el('span', { class: 'site-menu-icon', 'aria-hidden': 'true' }), 'メニュー']);
@@ -264,10 +259,6 @@ if (typeof document !== 'undefined') {
       applyPinned();
       if (wide.addEventListener) wide.addEventListener('change', applyPinned);
       else if (wide.addListener) wide.addListener(applyPinned);
-
-      // 作り替え前のページの onclick が残っていてもエラーにしない（Task 8 の後に消す）
-      window.pubToggleSidebar = toggle;
-      window.pubCloseSidebar = close;
     }
 
     // 記事の上部: 進み具合の棒・「STEP 3 / 16 ・ 準備」・所要時間の目安
@@ -474,7 +465,7 @@ if (typeof document !== 'undefined') {
       setupChrome(info, progress);
       if (step) {
         setupStepHeader(step);
-        setupStepNext(step, info.root);
+        if (step.ready) setupStepNext(step, info.root);
       }
       if (info.kind === 'map') setupMapResume(progress, info.root);
 
