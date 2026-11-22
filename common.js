@@ -95,7 +95,9 @@ function recordVisit(storage, n) {
 if (typeof document !== 'undefined') {
 
   // ===== 広告表記（全ページの上部） =====
+  // 作り替えたページは HTML に固定で置いてある（JavaScript が動かなくても出るように）。無いページだけ作る
   document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.site-pr-banner')) return;
     var banner = document.createElement('div');
     banner.className = 'site-pr-banner';
     banner.textContent = '当サイトはアフィリエイト広告（PR）を利用しています';
@@ -221,8 +223,10 @@ if (typeof document !== 'undefined') {
       var drawer = buildDrawer(info, progress);
       var overlay = el('div', { class: 'site-drawer-overlay' });
 
-      // ヘッダー → 広告表記 の順に並べる（広告表記は先に body の先頭に入っている）
+      // ヘッダー → 広告表記 の順に並べる
       document.body.insertBefore(header, document.body.firstChild);
+      var banner = document.querySelector('.site-pr-banner');
+      if (banner) document.body.insertBefore(banner, header.nextSibling);
       document.body.appendChild(drawer);
       document.body.appendChild(overlay);
 

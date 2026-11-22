@@ -29,6 +29,9 @@
   --c-warn-line: #E9C46A;
   --c-danger: #B42318;      /* 危険・悪い例 */
   --c-danger-weak: #FEF3F2;
+  --c-band: #17467F;        /* 記事の見出し帯（紺） */
+  --c-band-label: #BFD6F4;  /* 帯の上のラベル */
+  --c-band-sub: #DCE7F5;    /* 帯の上のサブタイトル */
 
   --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
   --header-h: 56px;
@@ -291,9 +294,10 @@ a.site-drawer-link:hover, a.site-drawer-step:hover { background: var(--c-surface
 
 
 /* ===== 4. 記事の見出し帯と導線 ===== */
-header.step-header { padding: 24px 0 8px; }
+/* 見出し帯: 横幅いっぱいの紺の帯。高さは抑え、375px でも1画面目に本文の書き出しが見えるようにする */
+header.step-header { padding: 16px 0 18px; background: var(--c-band); color: #fff; }
 @media (min-width: 768px) {
-  header.step-header { padding: 40px 0 12px; }
+  header.step-header { padding: 24px 0 24px; }
 }
 .step-header-content { max-width: var(--content-w); margin: 0 auto; }
 header.step-header h1 {
@@ -301,40 +305,40 @@ header.step-header h1 {
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 0.01em;
-  color: var(--c-text);
+  color: #fff;
 }
 /* h1 の「脱出STEP③」の部分（文字はそのまま。ラベル風に小さく見せる） */
 .step-kicker {
   display: block;
-  margin-bottom: 4px;
-  color: var(--c-accent);
+  margin-bottom: 2px;
+  color: var(--c-band-label);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.6;
 }
-.step-meta { margin-top: 10px; color: var(--c-sub); font-size: 1rem; line-height: 1.7; }
+.step-meta { margin-top: 6px; color: var(--c-band-sub); font-size: 1rem; line-height: 1.7; }
 
 /* 位置表示: 16個に区切った進み具合の棒と「STEP 3 / 16 ・ 準備」 */
 .step-progress { display: flex; gap: 3px; margin-bottom: 10px; }
-.step-progress i { flex: 1; height: 6px; border-radius: 3px; background: var(--c-line); }
-.step-progress i.is-done { background: var(--c-accent-mid); }
-.step-progress i.is-current { background: var(--c-accent); }
-.step-label { margin-bottom: 12px; color: var(--c-accent); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.5; }
+.step-progress i { flex: 1; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.22); }
+.step-progress i.is-done { background: rgba(255, 255, 255, 0.5); }
+.step-progress i.is-current { background: #fff; }
+.step-label { margin-bottom: 6px; color: var(--c-band-label); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.5; }
 .step-time {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 2px 10px;
   border-radius: 999px;
-  background: var(--c-surface);
-  color: var(--c-sub);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
   font-size: 0.875rem;
   line-height: 1.7;
 }
 
-.step-content { padding: 16px 0 56px; }
+.step-content { padding: 24px 0 56px; }
 .content-wrapper { max-width: var(--content-w); margin: 0 auto; }
 
 /* 目次（common.js が中身を作り、見出しを開閉ボタンにする） */
@@ -641,62 +645,96 @@ a.step-next-card::after {
 /* 作り替え前のページの「← 一覧に戻る」（作り替えで消す） */
 .back-button { display: inline-flex; align-items: center; min-height: var(--tap); margin-bottom: 16px; }
 
-/* 全体マップ（index.html）: フェーズ → STEP の縦の流れ */
-.phase-card {
-  margin: 0 0 24px;
-  padding: 16px 18px;
-  border-radius: var(--radius);
-  background: var(--c-accent-weak);
+/* 全体マップ（index.html）: フェーズごとに1つの枠（section.map-phase）、中の各STEPは白いカード（.map-step） */
+.map-phase {
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: 14px;
+  background: var(--c-surface);
 }
-.phase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.phase-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.section.map-phase { margin-bottom: 32px; padding-bottom: 14px; }
+.section.map-phase > h2 {
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
   background: var(--c-accent);
   color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
-.phase-title { color: var(--c-accent); font-size: 1.0625rem; font-weight: 700; }
+.phase-card { margin: 0; padding: 12px 16px 4px; }
 .phase-card p { margin-bottom: 0.5em; }
 .phase-card > :last-child { margin-bottom: 0; }
+/* 番号とフェーズ名は紺の見出し（h2）と同じ文字なので、画面には出さず読み上げだけ残す */
+.phase-header {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.phase-number, .phase-title { font-weight: 700; }
 
-.step-item {
+.content-wrapper { counter-reset: map-step; }
+.map-step {
   position: relative;
-  margin: 0 0 8px 15px;
-  padding: 0 0 24px 24px;
-  border-left: 2px solid var(--c-line);
-}
-.section h3 + .step-item { margin-top: -8px; }
-.step-item .step-header { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-bottom: 8px; }
-.step-item::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: -7px;
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--c-accent);
-  border-radius: 50%;
+  margin: 10px 12px 0;
+  padding: 12px 14px 14px 56px;
+  border: 1px solid var(--c-line);
+  border-radius: 12px;
   background: var(--c-bg);
+  counter-increment: map-step;
 }
-.step-number {
-  padding: 0 8px;
-  border-radius: 4px;
+@media (min-width: 768px) {
+  .map-step { margin: 12px 16px 0; padding: 16px 20px 18px 64px; }
+}
+/* 左の丸い番号 */
+.map-step::before {
+  content: counter(map-step);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: var(--c-accent-weak);
   color: var(--c-accent);
-  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.8;
-  white-space: nowrap;
+  line-height: 1;
 }
-.step-title { font-weight: 700; line-height: 1.55; }
+@media (min-width: 768px) {
+  .map-step::before { top: 16px; left: 18px; }
+}
+/* カードどうしを細い線でつなぐ */
+.map-step + .map-step::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: 27px;
+  width: 2px;
+  height: 10px;
+  background: #C9D6E6;
+}
+@media (min-width: 768px) {
+  .map-step + .map-step::after { top: -13px; left: 33px; height: 12px; }
+}
+.section .map-step h3 {
+  margin: 2px 0 2px;
+  padding: 0;
+  border: 0;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .section .map-step h3 { font-size: 1.125rem; }
+}
+
+.step-item .step-header { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-bottom: 6px; }
+/* カードの題名は h3 で出すので、中の番号と題名は画面に出さず読み上げだけ残す */
+.step-item .step-number, .step-item .step-title {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
 .step-duration {
   display: inline-flex;
   align-items: center;
@@ -719,7 +757,6 @@ a.step-next-card::after {
 .step-description ul { margin-bottom: 0.6em; }
 .step-item > .step-link { margin-top: 4px; background: var(--c-bg); color: var(--c-accent); border: 1px solid var(--c-accent); }
 .step-item > .step-link:hover { background: var(--c-accent-weak); color: var(--c-accent-dark); }
-.section .step-item:last-child { border-left-color: transparent; }
 
 /* 広告表記（おすすめ箇所の近く） */
 .pr-note {
