@@ -1,3 +1,31 @@
+// ===== 広告表記（全ページの上部） =====
+document.addEventListener('DOMContentLoaded', function () {
+  var banner = document.createElement('div');
+  banner.className = 'site-pr-banner';
+  banner.textContent = '当サイトはアフィリエイト広告（PR）を利用しています';
+  document.body.insertBefore(banner, document.body.firstChild);
+});
+
+// ===== 計測の口 =====
+(function () {
+  // TODO: 独自ドメイン決定後に窓口が設定（本番ドメインのときだけ true を返す）
+  function isProductionHost(hostname) {
+    return false;
+  }
+
+  // 今は何も送らない。送信先の解析サービスが決まったら、この中で送る。
+  window.werisuppTrack = function (name, data) {
+    if (!isProductionHost(location.hostname)) return;
+  };
+
+  // 記事内の外部リンクのクリック
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('main a[href]');
+    if (!a || !/^https?:$/.test(a.protocol) || a.hostname === location.hostname) return;
+    window.werisuppTrack('outbound_click', { href: a.href, page: location.pathname });
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
 
   // ===== 1. Google Drive 画像 URL 変換 =====
