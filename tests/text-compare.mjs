@@ -11,7 +11,8 @@ const RAW_TEXT = new Set(['script', 'style']);
 const DROP_TAGS = new Set(['script', 'style', 'template']);
 // 「一覧に戻る」を含む <a> を消す
 const BACK_LINK_TEXT = '一覧に戻る';
-// 本文がまだない雛形ページの印。main にこの文があれば main の中身は本文として比べない（準備中の案内に置き換えるため）
+// 本文がまだない雛形ページの印。before 側（base）の main にこの文があるときだけ、両側の main の中身を本文として比べない
+// （準備中の案内に置き換えるため）。after 側にこの文を足しても外さないので、本文の削除は見逃さない
 const PLACEHOLDER_TEXT = '（ここに本文を追加してください）';
 // final-cta の中で消すリンクの href（一覧・STEPへの導線）
 const CTA_STEP_HREF = /^(\.\/)?(index|step\d+)\.html$/;
@@ -147,13 +148,23 @@ function collect(node, ctx, out) {
   out.push(' ');
 }
 
-export function extractArticleText(html) {
+function scopesOf(root) {
+  return findAll(root, (n) => (n.tag === 'header' && hasClass(n, 'step-header')) || n.tag === 'main');
+}
+
+// before 側の main が雛形の文を含むか
+export function isPlaceholderPage(html) {
+  return scopesOf(parse(html)).some((s) => s.tag === 'main' && plainText(s).includes(PLACEHOLDER_TEXT));
+}
+
+// skipMain: true なら main の中身を比べない（compareHtml が before 側を見て決める）
+export function extractArticleText(html, { skipMain = false } = {}) {
   const root = parse(html);
-  let scopes = findAll(root, (n) => (n.tag === 'header' && hasClass(n, 'step-header')) || n.tag === 'main');
+  let scopes = scopesOf(root);
   if (scopes.length === 0) scopes = [findFirst(root, 'body') || root];
   const out = [];
   for (const s of scopes) {
-    if (s.tag === 'main' && plainText(s).includes(PLACEHOLDER_TEXT)) continue;
+    if (skipMain && s.tag === 'main') continue;
     for (const c of s.children) collect(c, { finalCta: false }, out);
     out.push(' ');
   }
@@ -161,8 +172,9 @@ export function extractArticleText(html) {
 }
 
 export function compareHtml(beforeHtml, afterHtml) {
-  const before = extractArticleText(beforeHtml);
-  const after = extractArticleText(afterHtml);
+  const skipMain = isPlaceholderPage(beforeHtml);
+  const before = extractArticleText(beforeHtml, { skipMain });
+  const after = extractArticleText(afterHtml, { skipMain });
   if (before === after) return { ok: true };
   let index = 0;
   const len = Math.min(before.length, after.length);

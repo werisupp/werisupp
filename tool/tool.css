@@ -85,7 +85,7 @@
 .star-card summary { cursor: pointer; padding: 0.75rem 1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; list-style-position: inside; }
 .star-skill { font-weight: 700; color: var(--c-accent); }
 .star-title { font-size: 0.95rem; flex: 1 1 14em; }
-.tool-badge { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 10px; background: var(--c-line); color: var(--c-sub); white-space: nowrap; }
+.tool-badge { font-size: 0.75rem; padding: 0.1rem 0.5rem; border: 1px solid var(--c-line); border-radius: 10px; background: var(--c-surface); color: var(--c-sub); white-space: nowrap; } /* 線の色を面にすると補助の文字が 4.5:1 を割るので、面は --c-surface にして枠で見せる */
 .star-body { margin: 0; padding: 0 1rem 0.5rem; }
 .star-body dt { font-weight: 700; font-size: 0.9rem; margin-top: 0.6rem; color: var(--c-sub); }
 .star-body dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }

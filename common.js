@@ -226,11 +226,29 @@ if (typeof document !== 'undefined') {
       document.body.appendChild(overlay);
 
       function isOpen() { return menuBtn.getAttribute('aria-expanded') === 'true'; }
+
+      // 開いている間は、メニューとメニューボタン以外を inert にして、Tab で背後の本文へ出ないようにする。
+      // inert に対応していないブラウザでも、下の Tab の巡回でメニューの中に留める
+      function setBackgroundInert(on) {
+        var nodes = Array.prototype.slice.call(document.body.children).filter(function (node) {
+          return node !== header && node !== drawer && node !== overlay;
+        });
+        nodes.push(header.querySelector('.site-logo'));
+        nodes.forEach(function (node) {
+          if (on) node.setAttribute('inert', '');
+          else node.removeAttribute('inert');
+        });
+      }
+      function focusables() {
+        return [menuBtn].concat(Array.prototype.slice.call(drawer.querySelectorAll('a[href], button')));
+      }
+
       function open() {
         menuBtn.setAttribute('aria-expanded', 'true');
         drawer.classList.add('is-open');
         overlay.classList.add('is-open');
         document.body.classList.add('has-drawer-open');
+        setBackgroundInert(true);
         var first = drawer.querySelector('a');
         if (first) first.focus();
       }
@@ -240,6 +258,7 @@ if (typeof document !== 'undefined') {
         drawer.classList.remove('is-open');
         overlay.classList.remove('is-open');
         document.body.classList.remove('has-drawer-open');
+        setBackgroundInert(false);
         menuBtn.focus();
       }
       function toggle() { if (isOpen()) close(); else open(); }
@@ -247,7 +266,16 @@ if (typeof document !== 'undefined') {
       menuBtn.addEventListener('click', toggle);
       overlay.addEventListener('click', close);
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') close();
+        if (e.key === 'Escape') { close(); return; }
+        if (e.key !== 'Tab' || !isOpen()) return;
+        // メニューボタン → メニューの中のリンク → メニューボタン … と巡回する
+        var list = focusables();
+        var i = list.indexOf(document.activeElement);
+        var next = null;
+        if (i === -1) next = e.shiftKey ? list[list.length - 1] : list[0];
+        else if (e.shiftKey && i === 0) next = list[list.length - 1];
+        else if (!e.shiftKey && i === list.length - 1) next = list[0];
+        if (next) { e.preventDefault(); next.focus(); }
       });
 
       // 広い画面では左に常に表示する
