@@ -13,7 +13,7 @@
 | 2026-11-23 | Claude（子） | 記事から無料ツールへの入口（サイドバー・案内ボックス・ログイン削除）タスク2-3 | claude/tool-entry | 完了 | #10 |
 | 2026-11-23 | Claude（子） | STEP⑩「提出書類を作成する」の記事を執筆（タスク1-2。STEP⑪〜⑯の題も直す） | werisupp/step10 | 完了 | #11 |
 | 2026-11-23 | Claude（子） | STEP⑪「面接準備（共通）」の記事を執筆（タスク1-2） | werisupp/step11 | 完了 | #12 |
-| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | レビュー待ち | #22（作り直しを #23 で統合済み。ホストの確認待ち。HANDOFF.md 参照） |
+| 2026-11-23 | Claude（窓口・監督） | サイト全体の見た目と導線の一新（設計: docs/superpowers/specs/2026-11-23-ui-refresh-design.md） | claude/ui-refresh（統合用） | 完了 | #22（#23 を統合して 2026-11-23 に公開） |
 | 2026-11-23 | Claude（子） | 一新 Task1 本文比較スクリプト | claude/ui-text-compare | 完了 | #13 |
 | 2026-11-23 | Claude（子） | 一新 Task2-3 土台（common.js・style.css）と見本（index・step3） | claude/ui-foundation | 完了 | #14 |
 | 2026-11-23 | Claude（子） | 一新 確認①の直し・公開前の直し・確認②の直し（前のデザインのメリハリ） | claude/ui-foundation | 完了 | #19・#21・#23 |
@@ -22,5 +22,6 @@
 | 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 完了 | #15 |
 | 2026-11-23 | Claude（子） | 一新 Task7 無料ツール | claude/ui-tool | 完了 | #18 |
 | 2026-11-23 | Claude（子） | 一新 Task8 step10〜16と準備中の表示 | claude/ui-pending | 完了 | #20 |
+| 2026-11-23 | Claude（窓口） | STEP⑫「面接準備（各応募企業）」の記事のためのホストへの聞き取り | claude/status-after-ui-refresh | 進行中 | HANDOFF.md 参照 |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
