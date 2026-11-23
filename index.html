@@ -8,46 +8,7 @@
   <script src="./common.js" defer></script>
 </head>
 <body class="pub-page-body">
-
-  <!-- ▼ 固定ヘッダー -->
-  <div class="pub-header">
-    <div style="display:flex; align-items:center; gap:15px;">
-      <button class="pub-menu-btn" onclick="pubToggleSidebar()">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-      </button>
-      <span class="pub-header-title">うぇりサポ</span>
-    </div>
-  </div>
-
-  <!-- ▼ サイドバーオーバーレイ -->
-  <div class="pub-sidebar-overlay" id="pubSidebarOverlay" onclick="pubCloseSidebar()"></div>
-
-  <!-- ▼ サイドバー -->
-  <div class="pub-sidebar" id="pubSidebar">
-    <ul class="pub-sidebar-menu">
-      <li><a href="./index.html">📋 記事一覧</a></li>
-      <li><a href="./tool/index.html">🛠 無料ツール</a></li>
-      <li><a href="./step1.html">脱出STEP①</a></li>
-      <li><a href="./step2.html">脱出STEP②</a></li>
-      <li><a href="./step3.html">脱出STEP③</a></li>
-      <li><a href="./step4.html">脱出STEP④</a></li>
-      <li><a href="./step5.html">脱出STEP⑤</a></li>
-      <li><a href="./step6.html">脱出STEP⑥</a></li>
-      <li><a href="./step7.html">脱出STEP⑦</a></li>
-      <li><a href="./step8.html">脱出STEP⑧</a></li>
-      <li><a href="./step9.html">脱出STEP⑨</a></li>
-      <li><a href="./step10.html">脱出STEP⑩</a></li>
-      <li><a href="./step11.html">脱出STEP⑪</a></li>
-      <li><a href="./step12.html">脱出STEP⑫</a></li>
-      <li><a href="./step13.html">脱出STEP⑬</a></li>
-      <li><a href="./step14.html">脱出STEP⑭</a></li>
-      <li><a href="./step15.html">脱出STEP⑮</a></li>
-      <li><a href="./step16.html">脱出STEP⑯</a></li>
-      <li><a href="./about.html">ℹ️ 運営者情報</a></li>
-    </ul>
-  </div>
+  <div class="site-pr-banner" data-ui>当サイトはアフィリエイト広告（PR）を利用しています</div>
 
   <!-- ▼ メインコンテンツ -->
 
@@ -181,7 +142,7 @@
   <p>それでは、各フェーズの詳細を見ていきましょう。</p>
   </section>
 
-  <section class="section" id="phase1">
+  <section class="section map-phase" id="phase1">
   <h2>フェーズ1：マインドセット（所要期間：～20分）</h2>
   <div class="phase-card">
   <div class="phase-header">
@@ -193,6 +154,7 @@
   <p>このフェーズをしっかり固めることで、その後の活動がブレずに進められます。</p>
   </div>
 
+  <div class="map-step">
   <h3 id="step1">STEP①：転職するためのマインドセットをする</h3>
   <div class="step-item">
   <div class="step-header">
@@ -212,7 +174,9 @@
   </div>
   <a href="./step1.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step2">STEP②：仕事より転職活動の優先度を上げる</h3>
   <div class="step-item">
   <div class="step-header">
@@ -231,9 +195,10 @@
   </div>
   <a href="./step2.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
   </section>
 
-  <section class="section" id="phase2">
+  <section class="section map-phase" id="phase2">
   <h2>フェーズ2：準備（所要期間：～33時間）</h2>
   <div class="phase-card">
   <div class="phase-header">
@@ -244,6 +209,7 @@
   <p>転職サービスへの登録、キャリア情報の整理、転職の軸の明確化など、活動をスムーズに進めるための土台を作るフェーズです。</p>
   </div>
 
+  <div class="map-step">
   <h3 id="step3">STEP③：転職サービスに登録する</h3>
   <div class="step-item">
   <div class="step-header">
@@ -262,7 +228,9 @@
   </div>
   <a href="./step3.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step4">STEP④：キャリア情報を完成させる</h3>
   <div class="step-item">
   <div class="step-header">
@@ -281,7 +249,9 @@
   </div>
   <a href="./step4.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step5">STEP⑤：転職活動で必要なモノ・環境を揃える</h3>
   <div class="step-item">
   <div class="step-header">
@@ -300,7 +270,9 @@
   </div>
   <a href="./step5.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step6">STEP⑥：転職の軸を明確にする</h3>
   <div class="step-item">
   <div class="step-header">
@@ -319,7 +291,9 @@
   </div>
   <a href="./step6.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step7">STEP⑦：キャリア情報をブラッシュアップする（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -339,9 +313,10 @@
   </div>
   <a href="./step7.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
   </section>
 
-  <section class="section" id="phase3">
+  <section class="section map-phase" id="phase3">
   <h2>フェーズ3：活動（所要期間：応募企業数により変動）</h2>
   <div class="phase-card">
   <div class="phase-header">
@@ -352,6 +327,7 @@
   <p>求人を探し、応募し、書類を作成し、面接を受け、内定を獲得する。このサイクルを繰り返すことで、あなたに合った会社を見つけていきます。</p>
   </div>
 
+  <div class="map-step">
   <h3 id="step8">STEP⑧：求人を探す or オファーを待つ（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -371,7 +347,9 @@
   </div>
   <a href="./step8.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step9">STEP⑨：求人に応募する（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -391,7 +369,9 @@
   </div>
   <a href="./step9.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step10">STEP⑩：提出書類を作成する（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -411,7 +391,9 @@
   </div>
   <a href="./step10.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step11">STEP⑪：面接準備（共通）（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -431,7 +413,9 @@
   </div>
   <a href="./step11.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step12">STEP⑫：面接準備（各応募企業）（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -451,7 +435,9 @@
   </div>
   <a href="./step12.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step13">STEP⑬：面接をする（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -471,7 +457,9 @@
   </div>
   <a href="./step13.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step14">STEP⑭：内定承諾判断（繰り返し）</h3>
   <div class="step-item">
   <div class="step-header">
@@ -491,7 +479,9 @@
   </div>
   <a href="./step14.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
 
+  <div class="map-step">
   <h3 id="step15">STEP⑮：内定承諾</h3>
   <div class="step-item">
   <div class="step-header">
@@ -510,9 +500,10 @@
   </div>
   <a href="./step15.html" class="step-link">詳しく読む →</a>
   </div>
+  </div>
   </section>
 
-  <section class="section" id="phase4">
+  <section class="section map-phase" id="phase4">
   <h2>フェーズ4：終了（所要期間：退職規定による）</h2>
   <div class="phase-card">
   <div class="phase-header">
@@ -523,6 +514,7 @@
   <p>退職手続きを正しく進めることで、気持ちよく新しい会社へ移ることができます。</p>
   </div>
 
+  <div class="map-step">
   <h3 id="step16">STEP⑯：退職手続き</h3>
   <div class="step-item">
   <div class="step-header">
@@ -541,6 +533,7 @@
   </ul>
   </div>
   <a href="./step16.html" class="step-link">詳しく読む →</a>
+  </div>
   </div>
   </section>
 
@@ -588,18 +581,6 @@
   </div>
   </div>
   </main>
-
-  <!-- ▼ サイドバーJS -->
-  <script>
-    function pubToggleSidebar() {
-      document.getElementById('pubSidebar').classList.toggle('open');
-      document.getElementById('pubSidebarOverlay').classList.toggle('show');
-    }
-    function pubCloseSidebar() {
-      document.getElementById('pubSidebar').classList.remove('open');
-      document.getElementById('pubSidebarOverlay').classList.remove('show');
-    }
-  </script>
 
 </body>
 </html>

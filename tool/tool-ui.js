@@ -68,16 +68,6 @@ function persist() {
   return ok;
 }
 
-// ---- 共通の枠（サイドバー） ----
-function setupChrome() {
-  const sidebar = $('#pubSidebar');
-  const overlay = $('#pubSidebarOverlay');
-  const toggle = () => { sidebar.classList.toggle('open'); overlay.classList.toggle('show'); };
-  const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); };
-  $('.pub-menu-btn').addEventListener('click', toggle);
-  overlay.addEventListener('click', close);
-}
-
 // ---- クリップボード ----
 async function copyText(text) {
   try {
@@ -520,7 +510,6 @@ function initIndex() {
 }
 
 // ---- 起動 ----
-setupChrome();
 persist();
 const page = document.body.dataset.page;
 if (page === 'axis') initAxis();
