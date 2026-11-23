@@ -73,3 +73,11 @@ test('before 側が雛形なら、after 側の main は中身を問わず外す'
   assert.equal(compareHtml(before, '<main><p>準備中です</p></main>').ok, true);
   assert.equal(compareHtml(before, '<main><p>（ここに本文を追加してください）</p></main>').ok, true);
 });
+
+test('final-cta の中の .html を省いた STEP リンクも導線として消す', () => {
+  const before = '<main><section class="final-cta"><p>次へ</p><a href="./step7" class="step-link">STEP⑦ →</a></section></main>';
+  const after = '<main><section class="final-cta"><p>次へ</p></section></main>';
+  assert.equal(compareHtml(before, after).ok, true);
+  // 外部のリンクは今までどおり本文として比べる
+  assert.equal(compareHtml('<main><section class="final-cta"><a href="https://example.com/step7">PR</a></section></main>', '<main><section class="final-cta"></section></main>').ok, false);
+});

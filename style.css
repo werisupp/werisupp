@@ -1,5 +1,5 @@
 /* =====================================================================
-   うぇりサポ 共通スタイル（B すっきり・信頼）
+   うぇりサポ 共通スタイル（B すっきり・信頼。ホスト確認後に前のデザインのメリハリを戻した。設計書 §10）
    構成:
      1. 変数（色・寸法）
      2. 土台（body・文字・リンク・フォーカス）
@@ -15,10 +15,9 @@
 :root {
   --c-text: #1D2939;        /* 本文・見出し */
   --c-sub: #5D6B7E;         /* 所要時間・注記・PR表記 */
-  --c-accent: #1F5FAD;      /* リンク・ボタン・位置表示・見出しの印 */
-  --c-accent-dark: #174A88; /* ボタンを押したとき */
-  --c-accent-weak: #EEF4FB; /* ラベル・選択中のメニュー */
-  --c-accent-mid: #A9C1E3;  /* 進み具合の「済み」 */
+  --c-accent: #005BAC;      /* リンク・ボタン・見出しの印（前のデザインの青） */
+  --c-accent-dark: #004A8A; /* ボタンを押したとき・帯のグラデーションの終わり */
+  --c-accent-weak: #EEF5FB; /* ラベル・選択中のメニュー */
   --c-line: #E4E8EE;        /* 区切り線・枠 */
   --c-surface: #F6F8FA;     /* ボックスの背景 */
   --c-bg: #FFFFFF;
@@ -26,16 +25,22 @@
   --c-good-weak: #EEF7F2;
   --c-warn: #8A5A00;        /* 注意 */
   --c-warn-weak: #FFF7E6;
-  --c-warn-line: #E9C46A;
   --c-danger: #B42318;      /* 危険・悪い例 */
   --c-danger-weak: #FEF3F2;
-  --c-band: #17467F;        /* 記事の見出し帯（紺） */
-  --c-band-label: #BFD6F4;  /* 帯の上のラベル */
-  --c-band-sub: #DCE7F5;    /* 帯の上のサブタイトル */
+  --c-point: #28A745;       /* ポイントのボックスの枠（前のデザインの緑） */
+  --c-point-text: #1E7A34;  /* ポイントのボックスの見出し（淡い緑の面で 4.5:1 以上） */
+  --c-warn-border: #E0A800;
+  --c-danger-border: #DC3545;
+  --c-band-sub: #EAF2FB;    /* 帯・記事の最後の青の上の文字 */
+  --band: linear-gradient(135deg, #005BAC 0%, #004A8A 100%);           /* 題名の帯・記事の最後・トップの各STEPの帯 */
+  --title-text: linear-gradient(45deg, #FFFFFF 10%, #5FE0B5 95%);      /* 題名の文字（白から緑がかった色へ） */
+  --cta-title-text: linear-gradient(90deg, #FFFFFF, #7FE3C4);          /* 記事の最後の見出しの文字 */
+  --go: linear-gradient(135deg, #22A04B, #1E9E73);                     /* 次のSTEP・詳しく読む のボタン（白文字は19px以上の太字で 3:1 以上） */
+  --go-hover: linear-gradient(135deg, #1D8F42, #1A8D66);
 
   --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
   --header-h: 56px;
-  --drawer-w: 280px;
+  --drawer-w: 300px;
   --content-w: 720px;
   --gutter: 16px;
   --radius: 10px;
@@ -44,8 +49,8 @@
   /* 作り替え前の名前（tool/tool.css や作り替え前のページが使っている）。新しい色の別名にしておく */
   --primary-color: var(--c-accent);
   --primary-dark: var(--c-accent-dark);
-  --secondary-color: var(--c-good);
-  --secondary-dark: var(--c-good);
+  --secondary-color: var(--c-point);
+  --secondary-dark: var(--c-point-text);
   --accent-color: var(--c-accent);
   --warning-color: var(--c-warn);
   --danger-color: var(--c-danger);
@@ -109,50 +114,42 @@ button { font: inherit; color: inherit; }
   z-index: 300;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   height: var(--header-h);
-  padding: 0 var(--gutter);
-  background: var(--c-bg);
-  border-bottom: 1px solid var(--c-line);
+  padding: 0 var(--gutter) 0 calc(var(--gutter) - 6px);
+  background: var(--c-accent);
+  color: #fff;
 }
+.site-header :focus-visible { outline-color: #fff; }
 .site-logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   min-height: var(--tap);
-  color: var(--c-text);
+  color: #fff;
   font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-.site-logo::before {
-  content: '';
-  width: 10px;
-  height: 18px;
-  border-radius: 2px;
-  background: var(--c-accent);
-}
-.site-logo:hover { color: var(--c-text); }
+.site-logo:hover { color: #fff; }
+/* メニューボタン: 左上に三本線のアイコンだけ（名前は aria-label="メニュー"） */
 .site-menu-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: var(--tap);
-  padding: 0 14px;
-  border: 1px solid var(--c-line);
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--tap);
+  height: var(--tap);
+  border: 0;
   border-radius: 8px;
-  background: var(--c-bg);
-  color: var(--c-text);
-  font-size: 0.9375rem;
-  font-weight: 700;
+  background: transparent;
+  color: #fff;
   cursor: pointer;
 }
-.site-menu-btn:hover { background: var(--c-surface); }
+.site-menu-btn:hover { background: rgba(255, 255, 255, 0.12); }
 .site-menu-icon {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/%3E%3C/svg%3E") center / contain no-repeat;
@@ -173,7 +170,7 @@ button { font: inherit; color: inherit; }
   text-align: center;
 }
 
-/* メニュー: スマホでは左から出す。広い画面（body.has-drawer-pinned）では左に常に表示 */
+/* メニュー: スマホでも PC でも、左上のボタンで左から出す */
 .site-drawer {
   position: fixed;
   top: var(--header-h);
@@ -262,60 +259,43 @@ a.site-drawer-link:hover, a.site-drawer-step:hover { background: var(--c-surface
   box-shadow: inset 3px 0 0 var(--c-accent);
 }
 
-@media (min-width: 1080px) {
-  body.has-drawer-pinned { padding-left: var(--drawer-w); }
-  body.has-drawer-pinned .site-header { margin-left: calc(var(--drawer-w) * -1); }
-  body.has-drawer-pinned .site-menu-btn { display: none; }
-  body.has-drawer-pinned .site-drawer { width: var(--drawer-w); transform: none; visibility: visible; transition: none; }
-  body.has-drawer-pinned .site-drawer-overlay { display: none; }
-}
-
 /* ===== 4. 記事の見出し帯と導線 ===== */
-/* 見出し帯: 横幅いっぱいの紺の帯。高さは抑え、375px でも1画面目に本文の書き出しが見えるようにする */
-header.step-header { padding: 16px 0 18px; background: var(--c-band); color: #fff; }
-@media (min-width: 768px) {
-  header.step-header { padding: 24px 0 24px; }
-}
+/* 題名の帯: 前のデザインどおり、青のグラデーションの帯に題名とサブの見出しを中央揃えで */
+header.step-header { padding: 2.5rem 0 2.75rem; background: var(--band); color: #fff; text-align: center; }
 .step-header-content { max-width: var(--content-w); margin: 0 auto; }
 header.step-header h1 {
-  font-size: clamp(1.5rem, 1.15rem + 1.6vw, 2rem);
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.01em;
+  display: inline-block;
   color: #fff;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
 }
-/* h1 の「脱出STEP③」の部分（文字はそのまま。ラベル風に小さく見せる） */
-.step-kicker {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--c-band-label);
+/* 題名の文字は白から緑がかった色へのグラデーション（対応しないブラウザでは白のまま） */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  header.step-header h1, .cta-title {
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header.step-header h1 { background-image: var(--title-text); }
+}
+/* h1 の「脱出STEP③」の部分（文字はそのまま。題名と同じ大きさで1行目に） */
+.step-kicker { display: block; }
+.step-meta { margin-top: 1rem; color: var(--c-band-sub); font-size: clamp(1rem, 2.5vw, 1.2rem); line-height: 1.7; }
+
+/* 帯のすぐ下の1行: 「STEP 3 / 16 ・ 目安 ～1時間」（common.js が足す） */
+.step-under {
+  max-width: calc(var(--content-w) + var(--gutter) * 2);
+  margin: 14px auto 0;
+  padding: 0 var(--gutter);
+  color: var(--c-sub);
   font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   line-height: 1.6;
 }
-.step-meta { margin-top: 6px; color: var(--c-band-sub); font-size: 1rem; line-height: 1.7; }
 
-/* 位置表示: 16個に区切った進み具合の棒と「STEP 3 / 16 ・ 準備」 */
-.step-progress { display: flex; gap: 3px; margin-bottom: 10px; }
-.step-progress i { flex: 1; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.22); }
-.step-progress i.is-done { background: rgba(255, 255, 255, 0.5); }
-.step-progress i.is-current { background: #fff; }
-.step-label { margin-bottom: 6px; color: var(--c-band-label); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.5; }
-.step-time {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding: 2px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  font-size: 0.875rem;
-  line-height: 1.7;
-}
-
-.step-content { padding: 24px 0 56px; }
+.step-content { padding: 20px 0 56px; }
 .content-wrapper { max-width: var(--content-w); margin: 0 auto; }
 
 /* 目次（common.js が中身を作り、見出しを開閉ボタンにする） */
@@ -364,39 +344,46 @@ header.step-header h1 {
 .toc-link-h3 { font-size: 0.9375rem; }
 .toc-link-h4 { font-size: 0.875rem; color: var(--c-sub) !important; }
 
-/* 記事の下部: 次のSTEP のカードと、小さく「前に戻る・全体マップ」 */
-.step-next { margin-top: 24px; text-align: left; }
+/* 記事の下部: 次のSTEP のボタン1つ（記事の最後の青いカードの中に入る） */
+.step-next { margin-top: 1.75rem; }
 .step-next-card {
   position: relative;
   display: block;
-  min-height: 72px;
-  padding: 14px 52px 14px 18px;
-  border-radius: 12px;
-  background: var(--c-accent);
+  padding: 16px 52px;
+  border-radius: 14px;
+  background: var(--go);
+  box-shadow: 0 6px 18px rgba(34, 160, 75, 0.35);
   color: #fff;
+  /* 白文字は 19px 以上の太字にして、大きな文字として 3:1 以上にする */
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
   text-decoration: none;
 }
-a.step-next-card:hover { background: var(--c-accent-dark); color: #fff; }
+a.step-next-card:hover { background: var(--go-hover); color: #fff; }
+/* 右側に、上下中央で矢印 */
 a.step-next-card::after {
   content: '';
   position: absolute;
   top: 50%;
   right: 18px;
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
   background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 4l-1.4 1.4 5.6 5.6H4v2h12.2l-5.6 5.6L12 20l8-8z'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 4l-1.4 1.4 5.6 5.6H4v2h12.2l-5.6 5.6L12 20l8-8z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-.step-next-card small { display: block; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.04em; opacity: 0.9; }
-.step-next-title { display: block; margin-top: 2px; font-size: 1.125rem; font-weight: 700; line-height: 1.5; }
-.step-next-card.is-pending { padding-right: 18px; border: 1px dashed var(--c-line); background: var(--c-bg); color: var(--c-sub); }
-.step-next-card.is-pending small { opacity: 1; } /* 補助の文字色を薄めると白地で 4.5:1 を割るため */
-.step-next-sub { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 8px; font-size: 0.9375rem; }
-.step-next-sub a { display: inline-flex; align-items: center; min-height: var(--tap); }
+/* 次が準備中のとき: 緑にせず、白い枠で全体マップへ案内する */
+.step-next-card.is-pending { background: transparent; box-shadow: none; border: 2px solid rgba(255, 255, 255, 0.7); }
+a.step-next-card.is-pending:hover { background: rgba(255, 255, 255, 0.12); }
+@media (max-width: 1000px) {
+  .step-next-card { padding: 14px 40px 14px 36px; font-size: 1.1875rem; }
+  a.step-next-card::after { right: 12px; }
+}
 
-/* 全体マップの上部: 「STEP ① から始める」か「前回の続き」 */
+/* 全体マップの上部: 「前回の続き」（以前に STEP を開いた人にだけ出す） */
 .map-resume { margin: 8px 0 32px; }
 .map-resume-link {
   display: flex;
@@ -412,18 +399,17 @@ a.step-next-card::after {
   text-decoration: none;
 }
 .map-resume-link:hover { background: var(--c-accent-dark); color: #fff; }
-.map-resume-link small { font-size: 0.8125rem; opacity: 0.9; }
-.map-resume-link.is-start { align-items: center; font-size: 1.0625rem; }
-
+.map-resume-link small { font-size: 0.8125rem; }
 
 /* ===== 5. 本文の部品（今あるクラス名のまま） ===== */
 .section { margin-bottom: 48px; }
 .section h2, .section h3, .section h4, [id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .section h2 {
   margin: 0 0 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--c-line);
-  font-size: 1.375rem;
+  padding: 0.5em 0.75em;
+  border-left: 5px solid var(--c-accent);
+  background: rgba(0, 91, 172, 0.05);
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -438,7 +424,7 @@ a.step-next-card::after {
 .section h4 { margin: 28px 0 12px; font-size: 1.0625rem; font-weight: 700; line-height: 1.6; }
 .section h4::before { content: '■'; margin-right: 0.4em; color: var(--c-accent); font-size: 0.75em; vertical-align: 0.15em; }
 @media (min-width: 768px) {
-  .section h2 { font-size: 1.5rem; }
+  .section h2 { font-size: 1.375rem; }
   .section h3 { font-size: 1.25rem; }
 }
 .section p, .section ul, .section ol { margin-bottom: 1.25em; }
@@ -446,16 +432,17 @@ a.step-next-card::after {
 .section li { margin-bottom: 0.4em; }
 .section li::marker { color: var(--c-accent); }
 
-/* ボックス: 面の色＋小さな見出し。強さは 危険 > 注意 > ポイント > その他 */
+/* ボックス: 前のデザインのはっきりした枠（2px・角丸15px）。種類は枠の色と見出しのアイコンで区別する */
 .reader-feelings-box, .highlight-box, .tips-box, .warning-box, .danger-box, .steps-box, .experience-box {
   --box-icon: none;
   margin: 24px 0;
-  padding: 16px 18px;
-  border-radius: var(--radius);
-  background: var(--c-surface);
+  padding: 20px 24px;
+  border: 2px solid var(--c-line);
+  border-radius: 15px;
+  background: var(--c-bg);
 }
-@media (min-width: 768px) {
-  .reader-feelings-box, .highlight-box, .tips-box, .warning-box, .danger-box, .steps-box, .experience-box { padding: 20px 24px; }
+@media (max-width: 1000px) {
+  .reader-feelings-box, .highlight-box, .tips-box, .warning-box, .danger-box, .steps-box, .experience-box { padding: 1.2rem; }
 }
 .box-title {
   display: flex;
@@ -480,13 +467,22 @@ a.step-next-card::after {
 .danger-box > :last-child, .steps-box > :last-child, .experience-box > :last-child { margin-bottom: 0; }
 .reader-feelings-box ul, .highlight-box ul, .tips-box ul, .warning-box ul, .danger-box ul, .steps-box ul, .experience-box ul,
 .reader-feelings-box ol, .highlight-box ol, .tips-box ol, .warning-box ol, .danger-box ol, .steps-box ol, .experience-box ol { margin-bottom: 0.75em; }
+/* ボックスの中の文字は前のデザインの大きさ（PC は p 1rem・li 1.1rem・見出し 1.3rem、幅1000px以下はどれも 0.95rem）。
+   本文16px以上の決めごとから外れるが、ホストの判断（設計書 §10） */
+.highlight-box p, .tips-box p, .warning-box p, .danger-box p, .steps-box p, .experience-box p { font-size: 1rem; line-height: 1.6; }
+.highlight-box li, .tips-box li, .warning-box li, .danger-box li, .steps-box li { font-size: 1.1rem; line-height: 1.6; }
+.highlight-box .box-title, .tips-box .box-title, .warning-box .box-title, .danger-box .box-title, .steps-box .box-title { font-size: 1.3rem; }
+@media (max-width: 1000px) {
+  .highlight-box p, .tips-box p, .warning-box p, .danger-box p, .steps-box p, .experience-box p,
+  .highlight-box li, .tips-box li, .warning-box li, .danger-box li, .steps-box li,
+  .highlight-box .box-title, .tips-box .box-title, .warning-box .box-title, .danger-box .box-title, .steps-box .box-title { font-size: 0.95rem; line-height: 1.75; }
+}
 
 /* こんな風に感じていませんか？（記事の入口なので控えめに） */
 .reader-feelings-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");
   margin-top: 8px;
-  background: var(--c-bg);
-  border: 1px solid var(--c-line);
+  border-width: 1px;
 }
 .reader-feelings-box .box-title { color: var(--c-sub); }
 .reader-feelings-box li::marker { color: var(--c-sub); }
@@ -494,37 +490,41 @@ a.step-next-card::after {
 /* ポイント・まとめ */
 .highlight-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m8 12 3 3 5-6'/%3E%3C/svg%3E");
-  background: var(--c-accent-weak);
+  border-color: var(--c-point);
+  background: rgba(40, 167, 69, 0.05);
 }
+.highlight-box .box-title, .highlight-box li::marker { color: var(--c-point-text); }
 /* 豆知識・補足 */
 .tips-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z'/%3E%3C/svg%3E");
+  border-color: var(--c-accent);
+  background: rgba(0, 91, 172, 0.05);
 }
 /* 手順・チェックリスト */
 .steps-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='16' height='16' rx='3'/%3E%3Cpath d='m8.5 12 2.5 2.5 4.5-5'/%3E%3C/svg%3E");
+  border-color: var(--c-accent);
 }
 /* 注意 */
 .warning-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01'/%3E%3C/svg%3E");
-  background: var(--c-warn-weak);
-  border-left: 4px solid var(--c-warn-line);
+  border-color: var(--c-warn-border);
+  background: #FFF9E6;
 }
 .warning-box .box-title { color: var(--c-warn); }
 .warning-box li::marker { color: var(--c-warn); }
 /* 危険 */
 .danger-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7.5v5.5M12 16.5h.01'/%3E%3C/svg%3E");
+  border-color: var(--c-danger-border);
   background: var(--c-danger-weak);
-  border-left: 4px solid var(--c-danger);
 }
 .danger-box .box-title { color: var(--c-danger); }
 .danger-box li::marker { color: var(--c-danger); }
 /* 体験談 */
 .experience-box {
   --box-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
-  background: var(--c-bg);
-  border: 1px solid var(--c-line);
+  border-color: #C9D2DE;
 }
 .experience-box .box-title { color: var(--c-text); }
 .experience-summary { padding-top: 12px; border-top: 1px dashed var(--c-line); font-weight: 700; }
@@ -589,141 +589,119 @@ a.step-next-card::after {
   .breakdown-table tbody th, .comparison-table tbody th { white-space: normal; min-width: 6em; }
 }
 
-/* 記事の最後（見出しと文章は本文。次のSTEP のカードは common.js がこの中に足す） */
+/* 記事の最後: 前のデザインの青いカード（見出しと文章は本文。次のSTEP のボタンは common.js がこの中に足す） */
 .final-cta {
   margin-top: 48px;
-  padding: 24px 18px;
-  border-radius: 14px;
-  background: var(--c-surface);
-  border: 1px solid var(--c-line);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  background: var(--band);
+  color: #fff;
+  text-align: center;
 }
-@media (min-width: 768px) {
-  .final-cta { padding: 28px 28px; }
+.cta-title {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.4;
 }
-.cta-title { margin-bottom: 10px; font-size: 1.25rem; font-weight: 700; line-height: 1.5; }
-.cta-description { margin-bottom: 0; }
-.final-cta .step-link { margin-top: 16px; }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .cta-title { background-image: var(--cta-title-text); }
+}
+.cta-description { margin-bottom: 0.5em; color: var(--c-band-sub); font-size: 1.2rem; line-height: 1.75; }
+.cta-description:last-of-type { margin-bottom: 0; }
+.final-cta .step-link { margin-top: 1.75rem; }
+@media (max-width: 1000px) {
+  .final-cta { padding: 2rem 1.1rem; }
+  .cta-description { font-size: 1.05rem; }
+}
 
-/* ボタン型のリンク */
+/* ボタン型のリンク（記事の最後・トップの「詳しく読む →」）: 明るい緑。白文字は 19px 以上の太字 */
 .step-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   min-height: var(--tap);
-  padding: 8px 18px;
-  border-radius: 8px;
-  background: var(--c-accent);
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: var(--go);
+  box-shadow: 0 6px 18px rgba(34, 160, 75, 0.35);
   color: #fff;
+  font-size: 1.1875rem;
   font-weight: 700;
   line-height: 1.5;
   text-decoration: none;
 }
-.step-link:hover { background: var(--c-accent-dark); color: #fff; }
+.step-link:hover { background: var(--go-hover); color: #fff; }
 
 /* 作り替え前のページの「← 一覧に戻る」（作り替えで消す） */
 .back-button { display: inline-flex; align-items: center; min-height: var(--tap); margin-bottom: 16px; }
 
-/* 全体マップ（index.html）: フェーズごとに1つの枠（section.map-phase）、中の各STEPは白いカード（.map-step） */
-.map-phase {
-  overflow: hidden;
-  border: 1px solid var(--c-line);
-  border-radius: 14px;
-  background: var(--c-surface);
-}
-.section.map-phase { margin-bottom: 32px; padding-bottom: 14px; }
+/* 全体マップ（index.html）: フェーズは外枠で囲まず、青い文字と下線の見出しで区切る（カードの中にカードを入れない） */
 .section.map-phase > h2 {
-  margin: 0;
-  padding: 12px 16px;
+  margin: 0 0 12px;
+  padding: 4px 0 8px;
   border: 0;
-  background: var(--c-accent);
-  color: #fff;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  border-bottom: 3px solid var(--c-accent);
+  background: none;
+  color: var(--c-accent);
+  font-size: 1.25rem;
 }
-.phase-card { margin: 0; padding: 12px 16px 4px; }
+@media (min-width: 768px) {
+  .section.map-phase > h2 { font-size: 1.5rem; }
+}
 .phase-card p { margin-bottom: 0.5em; }
 .phase-card > :last-child { margin-bottom: 0; }
-/* 番号とフェーズ名は紺の見出し（h2）と同じ文字なので、画面には出さず読み上げだけ残す */
+/* 番号とフェーズ名は見出し（h2）と同じ文字なので、画面には出さず読み上げだけ残す */
 .phase-header {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
-.phase-number, .phase-title { font-weight: 700; }
 
-.content-wrapper { counter-reset: map-step; }
-.map-step {
-  position: relative;
-  margin: 10px 12px 0;
-  padding: 12px 14px 14px 56px;
-  border: 1px solid var(--c-line);
-  border-radius: 12px;
-  background: var(--c-bg);
-  counter-increment: map-step;
-}
-@media (min-width: 768px) {
-  .map-step { margin: 12px 16px 0; padding: 16px 20px 18px 64px; }
-}
-/* 左の丸い番号 */
-.map-step::before {
-  content: counter(map-step);
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--c-accent-weak);
-  color: var(--c-accent);
-  font-weight: 700;
-  line-height: 1;
-}
-@media (min-width: 768px) {
-  .map-step::before { top: 16px; left: 18px; }
-}
-/* カードどうしを細い線でつなぐ */
-.map-step + .map-step::after {
-  content: '';
-  position: absolute;
-  top: -11px;
-  left: 27px;
-  width: 2px;
-  height: 10px;
-  background: #C9D6E6;
-}
-@media (min-width: 768px) {
-  .map-step + .map-step::after { top: -13px; left: 33px; height: 12px; }
-}
+/* 各STEPのカード（.map-step で h3 と .step-item をまとめている）: 前のデザインの青い帯＋バッジ */
+.map-step { margin-top: 20px; }
+/* カードの帯に番号と題名を出すので、上の h3「STEP③：…」は画面には出さず、読み上げと目次のリンク先だけ残す */
 .section .map-step h3 {
-  margin: 2px 0 2px;
-  padding: 0;
-  border: 0;
-  font-size: 1.0625rem;
-  line-height: 1.5;
-}
-@media (min-width: 768px) {
-  .section .map-step h3 { font-size: 1.125rem; }
-}
-
-.step-item .step-header { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-bottom: 6px; }
-/* カードの題名は h3 で出すので、中の番号と題名は画面に出さず読み上げだけ残す */
-.step-item .step-number, .step-item .step-title {
-  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
-.step-duration {
+.step-item {
+  overflow: hidden;
+  border: 1px solid #E3E8EF;
+  border-radius: 15px;
+  background: var(--c-bg);
+  box-shadow: 0 4px 20px rgba(0, 91, 172, 0.10);
+}
+.step-item .step-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  padding: 0.7rem 1rem;
+  background: var(--band);
+  color: #fff;
+}
+/* 帯の中のバッジ（白文字は小さいので、面の白は 15% までにして 4.5:1 以上にする） */
+.step-number, .step-duration {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: var(--c-sub);
-  font-size: 0.875rem;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 0.8125rem;
+  font-weight: 700;
   white-space: nowrap;
 }
-/* 時計のアイコン（記事の上部の .step-time と、全体マップの .step-duration で共通） */
-.step-time::before, .step-duration::before {
+.step-title { flex: 1 1 60%; font-size: 1.05rem; font-weight: 700; line-height: 1.45; }
+@media (min-width: 768px) {
+  .step-title { font-size: 1.15rem; }
+}
+/* 時計のアイコン（所要時間のバッジ） */
+.step-duration::before {
   content: '';
   flex-shrink: 0;
   width: 14px;
@@ -732,10 +710,16 @@ a.step-next-card::after {
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+.step-description { padding: 1rem 1rem 0.25rem; }
+@media (min-width: 768px) {
+  .step-description { padding: 1.25rem 1.5rem 0.25rem; }
+}
 .step-description p { margin-bottom: 0.6em; }
 .step-description ul { margin-bottom: 0.6em; }
-.step-item > .step-link { margin-top: 4px; background: var(--c-bg); color: var(--c-accent); border: 1px solid var(--c-accent); }
-.step-item > .step-link:hover { background: var(--c-accent-weak); color: var(--c-accent-dark); }
+.step-item > .step-link { margin: 0.25rem 1rem 1.1rem; }
+@media (min-width: 768px) {
+  .step-item > .step-link { margin: 0.25rem 1.5rem 1.4rem; }
+}
 
 /* 広告表記（おすすめ箇所の近く） */
 .pr-note {
@@ -807,7 +791,6 @@ a.step-next-card::after {
 /* ===== 印刷 ===== */
 @media print {
   .site-header, .site-drawer, .site-drawer-overlay, .step-next, .map-resume, .toc-toggle::after { display: none !important; }
-  body.has-drawer-pinned { padding-left: 0; }
   .table-of-contents.is-collapsed > :not(h2):not(h3) { display: block; }
 }
 

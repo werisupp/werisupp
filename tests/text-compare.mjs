@@ -14,8 +14,8 @@ const BACK_LINK_TEXT = '一覧に戻る';
 // 本文がまだない雛形ページの印。before 側（base）の main にこの文があるときだけ、両側の main の中身を本文として比べない
 // （準備中の案内に置き換えるため）。after 側にこの文を足しても外さないので、本文の削除は見逃さない
 const PLACEHOLDER_TEXT = '（ここに本文を追加してください）';
-// final-cta の中で消すリンクの href（一覧・STEPへの導線）
-const CTA_STEP_HREF = /^(\.\/)?(index|step\d+)\.html$/;
+// final-cta の中で消すリンクの href（一覧・STEPへの導線。Cloudflare Pages の形の .html を省いたものも）
+const CTA_STEP_HREF = /^(\.\/)?(index|step\d+)(\.html)?$/;
 
 function parseAttrs(src) {
   const attrs = {};
