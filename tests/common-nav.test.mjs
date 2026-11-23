@@ -40,7 +40,7 @@ test('STEP一覧は16件で index.html の題名と一致する', () => {
 
 test('STEP一覧のフェーズと公開済みの印', () => {
   assert.deepEqual(WERISUPP_STEPS[2], { n: 3, title: '転職サービスに登録する', phase: 'prep', duration: '～1時間', ready: true });
-  assert.deepEqual(WERISUPP_STEPS.filter((s) => s.ready).map((s) => s.n), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+  assert.deepEqual(WERISUPP_STEPS.filter((s) => s.ready).map((s) => s.n), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
   for (const s of WERISUPP_STEPS) {
     const phase = WERISUPP_PHASES.find((p) => p.key === s.phase);
     assert.ok(phase && s.n >= phase.from && s.n <= phase.to, `STEP ${s.n} のフェーズ`);
