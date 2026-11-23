@@ -41,13 +41,6 @@ function findStep(n) {
   return null;
 }
 
-function findPhase(key) {
-  for (var i = 0; i < WERISUPP_PHASES.length; i++) {
-    if (WERISUPP_PHASES[i].key === key) return WERISUPP_PHASES[i];
-  }
-  return null;
-}
-
 // ページの種類と、サイトのルート（common.js の置き場所）への相対パス。
 // Cloudflare Pages は「.html」を省いた URL（/step3、/tool/）で配信するので、どちらの形も受け付ける。
 function pageInfo(pathname, scriptSrcPath) {
@@ -208,12 +201,13 @@ if (typeof document !== 'undefined') {
     }
 
     function setupChrome(info, progress) {
+      // 左上に三本線のアイコンだけのボタン（名前は aria-label）。PC でもメニューはこのボタンで出す
       var menuBtn = el('button', {
-        type: 'button', class: 'site-menu-btn', 'aria-expanded': 'false', 'aria-controls': 'site-drawer'
-      }, [el('span', { class: 'site-menu-icon', 'aria-hidden': 'true' }), 'メニュー']);
+        type: 'button', class: 'site-menu-btn', 'aria-label': 'メニュー', 'aria-expanded': 'false', 'aria-controls': 'site-drawer'
+      }, [el('span', { class: 'site-menu-icon', 'aria-hidden': 'true' })]);
       var header = el('header', { class: 'site-header' }, [
-        el('a', { class: 'site-logo', href: info.root + 'index.html' }, ['うぇりサポ']),
-        menuBtn
+        menuBtn,
+        el('a', { class: 'site-logo', href: info.root + 'index.html' }, ['うぇりサポ'])
       ]);
       var drawer = buildDrawer(info, progress);
       var overlay = el('div', { class: 'site-drawer-overlay' });
@@ -278,97 +272,53 @@ if (typeof document !== 'undefined') {
         if (next) { e.preventDefault(); next.focus(); }
       });
 
-      // 広い画面では左に常に表示する
-      var wide = window.matchMedia('(min-width: 1080px)');
-      function applyPinned() {
-        if (wide.matches) close();
-        document.body.classList.toggle('has-drawer-pinned', wide.matches);
-      }
-      applyPinned();
-      if (wide.addEventListener) wide.addEventListener('change', applyPinned);
-      else if (wide.addListener) wide.addListener(applyPinned);
     }
 
-    // 記事の上部: 進み具合の棒・「STEP 3 / 16 ・ 準備」・所要時間の目安
+    // 題名の帯のすぐ下に1行:「STEP 3 / 16 ・ 目安 ～1時間」
     function setupStepHeader(step) {
-      var content = document.querySelector('.step-header-content');
-      if (!content) return;
-      var bar = el('div', { class: 'step-progress', 'aria-hidden': 'true' });
-      WERISUPP_STEPS.forEach(function (s) {
-        bar.appendChild(el('i', { class: s.n < step.n ? 'is-done' : s.n === step.n ? 'is-current' : '' }));
-      });
-      var phase = findPhase(step.phase);
-      var label = el('p', { class: 'step-label' }, [
-        'STEP ' + step.n + ' / ' + WERISUPP_STEPS.length + (phase ? ' ・ ' + phase.label : '')
-      ]);
-      content.insertBefore(label, content.firstChild);
-      content.insertBefore(bar, label);
-
-      if (step.duration && step.duration !== '-') {
-        var time = el('p', { class: 'step-time' }, ['目安 ' + step.duration]);
-        var meta = content.querySelector('.step-meta');
-        content.insertBefore(time, meta ? meta.nextSibling : null);
-      }
+      var band = document.querySelector('header.step-header');
+      if (!band) return;
+      var text = 'STEP ' + step.n + ' / ' + WERISUPP_STEPS.length;
+      if (step.duration && step.duration !== '-') text += ' ・ 目安 ' + step.duration;
+      band.parentNode.insertBefore(el('p', { class: 'step-under' }, [text]), band.nextSibling);
     }
 
-    // 記事の下部: 次のSTEP のカード1つと、小さく「前のSTEPに戻る・全体マップ」
+    // 記事の下部: 次のSTEP のボタン1つ。白文字の大きさを保つため、ラベルを分けずに「STEP ④ 題名」の1行にする
     function setupStepNext(step, root) {
-      var near = neighbors(step.n);
-      var next = near.next;
+      var next = neighbors(step.n).next;
       var card;
       if (!next) {
-        card = el('a', { class: 'step-next-card', href: root + 'index.html', 'data-track': 'step_next', 'data-track-from': String(step.n) }, [
-          el('small', {}, ['すべてのSTEP']),
-          el('span', { class: 'step-next-title' }, ['全体マップに戻る'])
-        ]);
+        card = el('a', { class: 'step-next-card', href: root + 'index.html', 'data-track': 'step_next', 'data-track-from': String(step.n) },
+          ['全体マップに戻る']);
       } else if (next.ready) {
         card = el('a', {
           class: 'step-next-card', href: root + 'step' + next.n + '.html',
           'data-track': 'step_next', 'data-track-from': String(step.n), 'data-track-to': String(next.n)
-        }, [
-          el('small', {}, ['次のSTEP ' + circled(next.n)]),
-          el('span', { class: 'step-next-title' }, [next.title])
-        ]);
+        }, [stepLabel(next.n) + ' ' + next.title]);
       } else {
-        card = el('div', { class: 'step-next-card is-pending' }, [
-          el('small', {}, ['次のSTEP ' + circled(next.n)]),
-          el('span', { class: 'step-next-title' }, [stepLabel(next.n) + ' は準備中です'])
-        ]);
+        // 次が準備中なら、その旨と全体マップへの案内を1つのボタンにする
+        card = el('a', { class: 'step-next-card is-pending', href: root + 'index.html', 'data-track': 'step_next', 'data-track-from': String(step.n) },
+          [stepLabel(next.n) + ' は準備中です（全体マップへ）']);
       }
-
-      var sub = el('p', { class: 'step-next-sub' });
-      if (near.prev && near.prev.ready) {
-        sub.appendChild(el('a', { href: root + 'step' + near.prev.n + '.html' }, ['← ' + stepLabel(near.prev.n) + ' に戻る']));
-      }
-      if (next) sub.appendChild(el('a', { href: root + 'index.html' }, ['全体マップ']));
 
       var nav = el('nav', { class: 'step-next', 'aria-label': '次に読むSTEP' }, [card]);
-      if (sub.childNodes.length) nav.appendChild(sub);
-
       var place = document.querySelector('section.final-cta') ||
         document.querySelector('.content-wrapper') || document.querySelector('main');
       if (place) place.appendChild(nav);
     }
 
-    // 全体マップの上部: 「STEP ① から始める」か「前回の続き」
+    // 全体マップの上部: 以前に STEP を開いた人にだけ「前回の続き」。
+    // 初めての人には何も出さない（悩みへの共感と全体像を読んでから STEP① に進んでほしいため。設計書 §10）
     function setupMapResume(progress, root) {
       var wrapper = document.querySelector('main .content-wrapper');
-      if (!wrapper) return;
       var last = findStep(progress.last);
-      var box;
-      if (last && last.ready) {
-        box = el('div', { class: 'map-resume' }, [
-          el('a', { class: 'map-resume-link', href: root + 'step' + last.n + '.html', 'data-track': 'map_resume', 'data-track-to': String(last.n) }, [
-            el('small', {}, ['前回の続き']),
-            el('span', {}, [stepLabel(last.n) + ' ' + last.title])
-          ])
-        ]);
-      } else {
-        box = el('div', { class: 'map-resume' }, [
-          el('a', { class: 'map-resume-link is-start', href: root + 'step1.html', 'data-track': 'map_start' }, [stepLabel(1) + ' から始める'])
-        ]);
-      }
-      wrapper.insertBefore(box, wrapper.firstChild);
+      if (!wrapper || !last || !last.ready) return;
+      wrapper.insertBefore(el('div', { class: 'map-resume' }, [
+        el('a', { class: 'map-resume-link', href: root + 'step' + last.n + '.html', 'data-track': 'map_resume', 'data-track-to': String(last.n) }, [
+          el('small', {}, ['前回の続き']),
+          el('span', {}, [stepLabel(last.n) + ' ' + last.title])
+        ])
+      ]), wrapper.firstChild);
     }
 
     // 目次の折りたたみ（スマホでは最初は閉じておく）
