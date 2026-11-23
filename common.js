@@ -17,7 +17,7 @@ var WERISUPP_STEPS = [
   { n: 13, title: '面接をする（繰り返し）', phase: 'action', duration: '～40時間（繰り返し）', ready: true },
   { n: 14, title: '内定承諾判断（繰り返し）', phase: 'action', duration: '～7日間（繰り返し）', ready: true },
   { n: 15, title: '内定承諾', phase: 'action', duration: '-', ready: true },
-  { n: 16, title: '退職手続き', phase: 'exit', duration: '退職規定による', ready: false }
+  { n: 16, title: '退職手続き', phase: 'exit', duration: '退職規定による', ready: true }
 ];
 
 var WERISUPP_PHASES = [
