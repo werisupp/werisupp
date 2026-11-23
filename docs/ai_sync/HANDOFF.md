@@ -8,15 +8,11 @@
 - 済んだこと:
   - 全21ページの作り替え（#13〜#21 を `claude/ui-refresh` に統合済み）と Codex のレビュー。
   - ホストが PR #22 を見て「前のデザインの方がメリハリがあった」と指摘。モックアップを4回やり取りして、新しい方針が決まった。
-- 進行中: 子ワークスペース `ui-foundation`（Opus 5.5 / high）が新しい方針を実装中。
-  - ブランチは `claude/ui-foundation`。終わると `claude/ui-refresh` 向けに新しい PR を出す。
-  - 依頼の全文と、ホストが見たモックアップは `ui-foundation-shots/host-mockup/`（このリポジトリの外、`~/orca/workspaces/werisupp/` の下）にある。
-  - 設計書の「10. ホスト確認後の変更」も、その PR で書き足される。
+- 済んだこと（追記）: 新しい方針の実装は PR #23 で `claude/ui-refresh` に統合済みです。テスト43件・本文比較21ファイル・画面確認の全ページで問題なし、axe の色の確認も違反0件。PR #22 の本文にも追記しました。
 - 次にやること:
-  1. `gh pr list --base claude/ui-refresh` で `claude/ui-foundation` の新しい PR を確認する。中身が依頼どおりか見る（スクリーンショット・axe の結果・Playwright の確認）。
-  2. 統合する。`node --test tests/`・`node tests/text-compare.mjs`（全21ファイル OK）・`node tests/screens.mjs`（全ページ exit 0）を、`claude/ui-refresh` の上でもう一度実行する。
-  3. プレビュー https://claude-ui-refresh.werisupp.pages.dev/ をホストに見せる（トップ・step3・PC）。前のデザインとの比較を求められたら、`origin/main` を取り出して Playwright で同じ場所を撮る。
-  4. ホストの OK のあと、PR #22 の本文を更新する（見た目の方針が変わったこと）。マージはホストの明示 OK のあと。
+  1. プレビュー https://claude-ui-refresh.werisupp.pages.dev/ をホストに確認してもらう（トップ・step3・PC）。
+  2. 直しがあれば、子ワークスペースで直す（土台は `claude/ui-foundation` の担当が詳しい）。
+  3. ホストの明示 OK のあと、PR #22 を `main` にマージする（＝公開）。マージのあとは、STATUS の行を「完了」にし、このメモを消す。
 - 注意点・未決事項:
   - 本文は変えない約束。h1 と一覧の題名の食い違い、STEP⑥ の画像が仮の URL のまま（本番でも出ていない）、STEP⑦ の最後の案内文のずれは、PR #22 の本文に「ホストに判断してほしいこと」として載せてある。
   - Chrome のヘッドレスは幅500px未満にならないので、375px の確認は Playwright で行う（`npm i --no-save playwright@1.58`）。
