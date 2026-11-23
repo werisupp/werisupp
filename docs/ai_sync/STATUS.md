@@ -22,7 +22,7 @@
 | 2026-11-23 | Claude（子） | 一新 Task6 step8・9・about | claude/ui-pages-c | 完了 | #15 |
 | 2026-11-23 | Claude（子） | 一新 Task7 無料ツール | claude/ui-tool | 完了 | #18 |
 | 2026-11-23 | Claude（子） | 一新 Task8 step10〜16と準備中の表示 | claude/ui-pending | 完了 | #20 |
-| 2026-11-23 | Claude（窓口） | STEP⑫「面接準備（各応募企業）」の記事のためのホストへの聞き取り | claude/status-after-ui-refresh | 進行中 | HANDOFF.md 参照 |
-| 2026-11-23 | Claude（子） | STEP⑫「面接準備（各応募企業）」の記事を執筆 | claude/step12 | レビュー待ち | #25 |
+| 2026-11-23 | Claude（窓口） | STEP⑫「面接準備（各応募企業）」の記事のためのホストへの聞き取り | claude/status-after-ui-refresh | 完了 | 記録は werisupp-tools #10 |
+| 2026-11-23 | Claude（子） | STEP⑫「面接準備（各応募企業）」の記事を執筆 | claude/step12 | 完了 | #25（2026-11-23 公開） |
 
 状態は「進行中」「引き継ぎ待ち」「レビュー待ち」「完了」のどれか。
