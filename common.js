@@ -13,7 +13,7 @@ var WERISUPP_STEPS = [
   { n: 9,  title: '求人に応募する（繰り返し）', phase: 'action', duration: '～2時間（繰り返し）', ready: true },
   { n: 10, title: '提出書類を作成する（繰り返し）', phase: 'action', duration: '～40時間（繰り返し）', ready: true },
   { n: 11, title: '面接準備（共通）（繰り返し）', phase: 'action', duration: '～1時間（繰り返し）', ready: true },
-  { n: 12, title: '面接準備（各応募企業）（繰り返し）', phase: 'action', duration: '～20時間（繰り返し）', ready: false },
+  { n: 12, title: '面接準備（各応募企業）（繰り返し）', phase: 'action', duration: '～20時間（繰り返し）', ready: true },
   { n: 13, title: '面接をする（繰り返し）', phase: 'action', duration: '～40時間（繰り返し）', ready: false },
   { n: 14, title: '内定承諾判断（繰り返し）', phase: 'action', duration: '～7日間（繰り返し）', ready: false },
   { n: 15, title: '内定承諾', phase: 'action', duration: '-', ready: false },
